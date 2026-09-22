@@ -1,3 +1,11 @@
+'use client'
+
+import { useState } from 'react';
+
+import { IconPlus, IconMinus, IconX, IconShoppingBag } from '@tabler/icons-react';
+
+import { BurgerIcon } from '@/src/components/atoms';
+
 type StyleGuidePageProps = {};
 
 const ColorBox = ({ colorClassName }: { colorClassName: string }) => {
@@ -24,9 +32,9 @@ const ColorBox = ({ colorClassName }: { colorClassName: string }) => {
     }
     return (
         <div
-            className={`group flex items-center justify-center w-32 h-32 border border-black ${colorClassName}`}
+            className={`group flex items-center justify-center w-30 h-30 border border-black ${colorClassName}`}
         >
-            <p className={`text-16 ${getContrastColor()} font-sans opacity-0 group-hover:opacity-100 transition-opacity duration-150`}>
+            <p className={`text-caption text-[0.75rem] ${getContrastColor()} font-sans opacity-0 group-hover:opacity-100 transition-opacity duration-150`}>
                 {colorClassName.split('-').slice(1).join('-')}
             </p>
         </div>
@@ -34,8 +42,14 @@ const ColorBox = ({ colorClassName }: { colorClassName: string }) => {
 };
 
 const StyleGuidePage = ({ }: StyleGuidePageProps) => {
+    const [isBurgerOpen, setIsBurgerOpen] = useState(false);
+
+    const toggleBurger = () => {
+        setIsBurgerOpen(!isBurgerOpen);
+    };
+
     return (
-        <div className='flex flex-col gap-12 px-8 py-4'>
+        <div className='flex flex-col gap-16 px-16 py-12'>
             <section className='flex flex-col gap-4'>
                 <h2 className='text-h2 uppercase underline text-black'>Typografia</h2>
                 <div className='flex flex-col gap-2'>
@@ -88,6 +102,28 @@ const StyleGuidePage = ({ }: StyleGuidePageProps) => {
                         <ColorBox colorClassName='bg-success' />
                         <ColorBox colorClassName='bg-error' />
                         <ColorBox colorClassName='bg-warning' />
+                    </div>
+                </div>
+            </section>
+            <section className='flex flex-col gap-4'>
+                <h2 className='text-h2 uppercase underline text-black'>Ikony</h2>
+                <div className="flex flex-col gap-2">
+                    <div className="flex flex-row gap-2">
+                        <div className='flex items-center justify-center w-16 h-16 border border-black'>
+                            <IconPlus className='w-8 h-8' strokeWidth={1.5} />
+                        </div>
+                        <div className='flex items-center justify-center w-16 h-16 border border-black'>
+                            <IconMinus className='w-8 h-8' strokeWidth={1.5} />
+                        </div>
+                        <div className='flex items-center justify-center w-16 h-16 border border-black'>
+                            <IconShoppingBag className='w-8 h-8' strokeWidth={1.5} />
+                        </div>
+                        <div className='flex items-center justify-center w-16 h-16 border border-black'>
+                            <BurgerIcon isOpen={isBurgerOpen} onClick={toggleBurger} />
+                        </div>
+                        <div className='flex items-center justify-center w-16 h-16 border border-black'>
+                            <IconX className='w-8 h-8' strokeWidth={1.5} />
+                        </div>
                     </div>
                 </div>
             </section>
