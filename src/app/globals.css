@@ -376,3 +376,26 @@ html {
 	transition-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
 	transition-duration: 500ms;
 }
+
+@keyframes timeout-opacity {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes timeout-opacity {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+}
+
+@utility timeout-opacity {
+	animation: timeout-opacity 0.75s steps(1, end) forwards;
+}
