@@ -1,3 +1,5 @@
+import { Navigation } from '@/src/components/layout';
+
 export default async function SiteLayout({
 	children,
 }: Readonly<{
@@ -6,7 +8,7 @@ export default async function SiteLayout({
 
 	return (
 		<div className="flex flex-col">
-            {/* Navigation */}
+            <Navigation />
 			<main className="flex-1">{children}</main>
             {/* Footer */}
 		</div>

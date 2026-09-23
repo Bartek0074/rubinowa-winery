@@ -174,32 +174,32 @@ html {
 
 @media only screen and (min-width: 380px) {
 	html {
-		font-size: 90%;
+		font-size: 87.5%;
 	}
 }
 @media only screen and (min-width: 440px) {
 	html {
-		font-size: 100%;
+		font-size: 92.5%;
 	}
 }
 @media only screen and (min-width: 640px) {
 	html {
-		font-size: 110%;
+		font-size: 97.5%;
 	}
 }
 @media only screen and (min-width: 768px) {
 	html {
-		font-size: 115%;
+		font-size: 102.5%;
 	}
 }
 @media only screen and (min-width: 1280px) {
 	html {
-		font-size: 85%;
+		font-size: 95%;
 	}
 }
 @media only screen and (min-width: 1440px) {
 	html {
-		font-size: 90%;
+		font-size: 95%;
 	}
 }
 @media only screen and (min-width: 1600px) {
@@ -370,4 +370,9 @@ html {
 		line-height: var(--text-caption-d--line-height);
 		letter-spacing: var(--text-caption-d--letter-spacing);
 	}
+}
+
+@utility ease-editorial {
+	transition-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
+	transition-duration: 500ms;
 }
