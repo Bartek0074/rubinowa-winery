@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 import { IconPlus, IconMinus, IconShoppingBag } from '@tabler/icons-react';
 
-import { MenuButton } from '@/src/components/layout/Navigation/components';
+import { MenuButton } from '@/src/components/layout/components';
 
 type StyleGuidePageProps = {};
 
