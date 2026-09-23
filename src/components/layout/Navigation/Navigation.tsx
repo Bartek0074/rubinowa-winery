@@ -31,7 +31,7 @@ const Navigation = () => {
 		<nav className={navigationClassName}>
 			<div className='flex flex-row items-center justify-center gap-7.25'>
 				<Link href='/'>
-					<LogoWoodmark className='h-5.5 lg:h-6 text-black hover:opacity-85 transition-opacity duration-200' />
+					<LogoWoodmark className='h-5.5 xs:h-6 text-black hover:opacity-85 transition-opacity duration-200' />
 				</Link>
 				<ul className='hidden lg:flex flex-row gap-6.75'>
 					{links.map((link) => (
