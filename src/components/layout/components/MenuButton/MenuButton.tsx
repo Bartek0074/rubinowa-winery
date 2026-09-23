@@ -3,22 +3,26 @@ import clsx from 'clsx';
 type MenuButtonProps = {
 	isOpen: boolean;
 	onClick: () => void;
+	isBlack?: boolean;
 	className?: string;
 };
 
-const MenuButton = ({ isOpen, onClick, className }: MenuButtonProps) => {
+const MenuButton = ({ isOpen, onClick, isBlack, className }: MenuButtonProps) => {
 	const topLineClasses = clsx(
-		'h-0.5 w-full rounded-full bg-black transition-all ease-editorial',
+		'h-0.5 w-full rounded-full transition-all ease-editorial',
+		isBlack ? 'bg-black' : 'bg-off-white',
 		isOpen ? 'rotate-45 translate-y-2.25 lg:translate-y-2' : '',
 	);
 
 	const middleLineClasses = clsx(
-		'h-0.5 w-full rounded-full bg-black transition-all ease-editorial',
+		'h-0.5 w-full rounded-full transition-all ease-editorial',
+		isBlack ? 'bg-black' : 'bg-off-white',
 		isOpen ? 'opacity-0' : '',
 	);
 
 	const bottomLineClasses = clsx(
-		'h-0.5 w-full rounded-full bg-black transition-all ease-editorial',
+		'h-0.5 w-full rounded-full transition-all ease-editorial',
+		isBlack ? 'bg-black' : 'bg-off-white',
 		isOpen ? '-rotate-45 -translate-y-2.25 lg:-translate-y-2' : '',
 	);
 

@@ -5,6 +5,7 @@ type NavLinkDesktopProps = {
 	href: string;
 	text: string;
 	isActive: boolean;
+	isBlack?: boolean;
 	className?: string;
 };
 
@@ -12,6 +13,7 @@ const NavLinkDesktop = ({
 	href,
 	text,
 	isActive,
+	isBlack,
 	className,
 }: NavLinkDesktopProps) => {
 	return (
@@ -20,6 +22,8 @@ const NavLinkDesktop = ({
 			className={clsx(
 				'group relative block cursor-pointer uppercase px-px',
 				'font-sans text-[0.875rem] tracking-widest font-medium leading-5',
+				'transition-colors ease-editorial',
+				isBlack ? 'text-black' : 'text-off-white',
 				className,
 			)}
 		>
@@ -39,8 +43,9 @@ const NavLinkDesktop = ({
 			<span
 				aria-hidden='true'
 				className={clsx(
-					'absolute -bottom-0.5 left-0 h-px bg-black',
-					'transition-[width] ease-editorial',
+					'absolute -bottom-0.5 left-0 h-px',
+					'transition-[width,background-color] ease-editorial',
+					isBlack ? 'bg-black' : 'bg-off-white',
 					isActive
 						? 'w-full'
 						: 'w-0 group-hover:w-full group-focus-visible:w-full',
