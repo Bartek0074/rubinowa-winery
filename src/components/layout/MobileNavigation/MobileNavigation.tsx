@@ -47,7 +47,7 @@ const MobileNavigation = () => {
 		<nav
 			ref={drawerRef}
 			id='mobile-navigation'
-			className='fixed z-90 inset-x-0 top-17 bottom-0 p-4 bg-off-white lg:hidden'
+			className='timeout-opacity fixed z-90 inset-x-0 top-17 bottom-0 p-4 bg-off-white lg:hidden'
 		>
 			<ul className='flex justify-center h-[calc(100%-3.75rem)] flex-col gap-4'>
 				{links.map(({ href, label }) => (

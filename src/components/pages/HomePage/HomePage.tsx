@@ -1,14 +1,12 @@
-import HeroSection from "./sections/HeroSection";
+import HeroSection from './sections/HeroSection';
 
-type Props = {
-};
+type Props = {};
 
-const HomePage = ({
-}: Props) => {
+const HomePage = ({}: Props) => {
 	return (
-		<div className="flex flex-col">
-				<HeroSection  />
-				<div className="h-screen"></div>
+		<div className='flex flex-col'>
+			<HeroSection />
+			<div className='h-screen'></div>
 		</div>
 	);
 };

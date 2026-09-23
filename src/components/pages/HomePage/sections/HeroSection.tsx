@@ -15,7 +15,7 @@ const HeroSection = ({ className }: Props) => {
 				loop
 				muted
 				playsInline
-				className='pointer-events-none absolute inset-0 z-1 h-full w-full object-cover lighten-50'
+				className='pointer-events-none absolute inset-0 z-1 h-full w-full object-cover'
 			/>
 		</section>
 	);

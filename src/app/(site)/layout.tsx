@@ -13,12 +13,10 @@ export default async function SiteLayout({
 	return (
 		<div className='flex flex-col'>
 			<Navigation />
-			<div className='timeout-opacity'>
-				<MobileNavigation />
-				<CartDrawer />
-			</div>
+			<MobileNavigation />
+			<CartDrawer />
 			<BodyScrollLock />
-			<main className='flex-1 -z-1'>{children}</main>
+			<main className='flex-1'>{children}</main>
 			{/* Footer */}
 		</div>
 	);
