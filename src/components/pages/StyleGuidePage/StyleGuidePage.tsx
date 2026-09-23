@@ -2,9 +2,9 @@
 
 import { useState } from 'react';
 
-import { IconPlus, IconMinus, IconX, IconShoppingBag } from '@tabler/icons-react';
+import { IconPlus, IconMinus, IconShoppingBag } from '@tabler/icons-react';
 
-import { BurgerIcon } from '@/src/components/atoms';
+import { MenuButton } from '@/src/components/atoms';
 
 type StyleGuidePageProps = {};
 
@@ -119,10 +119,7 @@ const StyleGuidePage = ({ }: StyleGuidePageProps) => {
                             <IconShoppingBag className='w-8 h-8' strokeWidth={1.5} />
                         </div>
                         <div className='flex items-center justify-center w-16 h-16 border border-black'>
-                            <BurgerIcon isOpen={isBurgerOpen} onClick={toggleBurger} />
-                        </div>
-                        <div className='flex items-center justify-center w-16 h-16 border border-black'>
-                            <IconX className='w-8 h-8' strokeWidth={1.5} />
+                            <MenuButton isOpen={isBurgerOpen} onClick={toggleBurger} />
                         </div>
                     </div>
                 </div>

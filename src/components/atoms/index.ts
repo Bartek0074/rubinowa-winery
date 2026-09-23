@@ -1,3 +1,3 @@
-import BurgerIcon from './BurgerIcon'; 
+import MenuButton from './MenuButton'; 
 
-export { BurgerIcon };
+export { MenuButton };
