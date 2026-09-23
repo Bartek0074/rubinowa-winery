@@ -12,7 +12,7 @@ gsap.registerPlugin(useGSAP);
 const MobileNavigation = () => {
     const drawerRef = useRef<HTMLDivElement>(null);
 
-    const isNavMenuOpen = useUiStore((state) => state.isNavMenuOpen);
+    const { isNavMenuOpen } = useUiStore();
 
     useGSAP(
         () => {
@@ -32,8 +32,10 @@ const MobileNavigation = () => {
         <div
             ref={drawerRef}
             id='mobile-navigation'
-            className='fixed z-90 inset-x-0 top-17 bottom-0 bg-off-white lg:hidden'
-        />
+            className='fixed z-90 inset-x-0 top-17 bottom-0 p-4 bg-off-white lg:hidden'
+        >
+            <p className='text-lead'>Zawartość Nawigacji</p>
+        </div>
     );
 };
 

@@ -34,8 +34,6 @@ const Navigation = () => {
         closeNavMenu,
     } = useUiStore();
 
-    console.log(isCartOpen, isNavMenuOpen);
-
     const navigationClassName = clsx(
         'fixed z-100 top-0 flex items-center justify-between w-full gap-2 p-4 lg:p-6.75 bg-off-white',
     );

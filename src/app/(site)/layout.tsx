@@ -1,4 +1,9 @@
-import { Navigation, MobileNavigation, BodyScrollLock } from '@/src/components/layout';
+import {
+	Navigation,
+	MobileNavigation,
+	BodyScrollLock,
+	CartDrawer,
+} from '@/src/components/layout';
 
 export default async function SiteLayout({
 	children,
@@ -10,6 +15,7 @@ export default async function SiteLayout({
 			<Navigation />
 			<MobileNavigation />
 			<BodyScrollLock />
+			<CartDrawer />
 			<main className='flex-1'>{children}</main>
 			{/* Footer */}
 		</div>
