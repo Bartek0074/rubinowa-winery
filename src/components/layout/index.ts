@@ -1,3 +1,4 @@
-import { Navigation } from './Navigation';
+import Navigation from './Navigation';
+import MobileNavigation from './MobileNavigation';
 
-export { Navigation };
+export { Navigation, MobileNavigation };
