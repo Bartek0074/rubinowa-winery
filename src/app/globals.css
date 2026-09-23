@@ -1,8 +1,8 @@
 @import 'tailwindcss';
 
 :root {
-	--foreground: #242321;
-	--background: #fcfbf8;
+	--foreground: #242426;
+	--background: #fafaf8;
 }
 
 @theme inline {
@@ -25,15 +25,17 @@
 	--breakpoint-4xl: 2560px;
 	--breakpoint-5xl: 3840px;
 
-	--color-white: #ffffff;
-	--color-off-white: #fcfbf8;
-	--color-off-white-muted: #d8d0c7;
-	--color-beige: #f3efe7;
-
-	--color-black: #242321;
-	--color-black-muted: #5f5d58;
-
 	/* Colors */
+
+	--color-white: #ffffff;
+	--color-off-white: #fafaf8;
+	--color-off-white-muted: #d9d5cf;
+
+	--color-beige: #f1eee7;
+
+	--color-black: #242426;
+	--color-black-muted: #5e5e5b;
+
 	--color-primary-50: #fbf3f6;
 	--color-primary-100: #f5e3ea;
 	--color-primary-200: #e9c5d3;
@@ -45,16 +47,18 @@
 	--color-primary-800: #450923;
 	--color-primary-900: #330619;
 
-	--color-secondary-50: #f5f6f3;
-	--color-secondary-100: #e7eae3;
-	--color-secondary-200: #d0d5c9;
-	--color-secondary-300: #b3bcab;
-	--color-secondary-400: #929f87;
-	--color-secondary-500: #707f63;
-	--color-secondary-600: #4f5b45;
-	--color-secondary-700: #424b3a;
-	--color-secondary-800: #343c2e;
-	--color-secondary-900: #272d22;
+	--color-secondary-50: #f4f6f3;
+	--color-secondary-100: #e6eae5;
+	--color-secondary-200: #d0d6ce;
+	--color-secondary-300: #b3bdb3;
+	--color-secondary-400: #929f91;
+	--color-secondary-500: #707f6d;
+	--color-secondary-600: #505d4d;
+	--color-secondary-700: #434d40;
+	--color-secondary-800: #353e32;
+	--color-secondary-900: #282f27;
+
+	--color-atmosphere-blue: #2d506d;
 
 	--color-wine-ametyst: #8867aa;
 	--color-wine-bursztyn: #f6a316;
@@ -72,8 +76,6 @@
 	--color-success: #26734d;
 	--color-error: #b42318;
 	--color-warning: #a15c00;
-
-	/* Typography */
 
 	/* Typography */
 
