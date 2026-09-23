@@ -54,7 +54,7 @@ const Navigation = () => {
 	} = useUiStore();
 
 	const navigationClassName = clsx(
-		'fixed z-100 top-0 flex items-center justify-between w-full gap-2 p-4 lg:p-6.75 transition-colors ease-editorial',
+		'fixed z-100 top-0 flex items-center justify-between w-full gap-2 p-4 lg:p-7 transition-colors ease-editorial',
 		canBeBlank
 			? isScrolled || isNavMenuOpen
 				? 'bg-off-white'

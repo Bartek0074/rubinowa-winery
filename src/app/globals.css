@@ -27,6 +27,7 @@
 
 	--color-white: #ffffff;
 	--color-off-white: #fcfbf8;
+	--color-off-white-muted: #d8d0c7;
 	--color-beige: #f3efe7;
 
 	--color-black: #242321;
@@ -77,9 +78,12 @@
 	/* Typography */
 
 	/* Display */
-	--text-display-m: 3.5rem;
+	--text-display-m: 3.125rem;
 	--text-display-m--line-height: 110%;
 	--text-display-m--letter-spacing: -0.025em;
+
+	--text-display-mx: 3.25rem;
+	--text-display-t: 3.5rem;
 
 	--text-display-d: 6rem;
 	--text-display-d--line-height: 105%;
@@ -168,28 +172,38 @@ body {
 }
 
 html {
-	font-size: 85%;
+	font-size: 78.75%;
 	scrollbar-gutter: stable;
 }
 
+@media only screen and (min-width: 340px) {
+	html {
+		font-size: 81.25%;
+	}
+}
+@media only screen and (min-width: 360px) {
+	html {
+		font-size: 82.5%;
+	}
+}
 @media only screen and (min-width: 380px) {
 	html {
-		font-size: 87.5%;
+		font-size: 85%;
 	}
 }
 @media only screen and (min-width: 440px) {
 	html {
-		font-size: 92.5%;
+		font-size: 90%;
 	}
 }
 @media only screen and (min-width: 640px) {
 	html {
-		font-size: 97.5%;
+		font-size: 95%;
 	}
 }
 @media only screen and (min-width: 768px) {
 	html {
-		font-size: 102.5%;
+		font-size: 100%;
 	}
 }
 @media only screen and (min-width: 1280px) {
@@ -251,6 +265,13 @@ html {
 	line-height: var(--text-display-m--line-height);
 	letter-spacing: var(--text-display-m--letter-spacing);
 	font-weight: 500;
+
+	@media (min-width: 480px) {
+		font-size: var(--text-display-mx);
+	}
+	@media (min-width: 768px) {
+		font-size: var(--text-display-t);
+	}
 
 	@media (min-width: 1280px) {
 		font-size: var(--text-display-d);
