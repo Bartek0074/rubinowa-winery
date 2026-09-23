@@ -12,6 +12,8 @@ import { LogoWoodmark } from '@/src/components/icons/';
 
 import { ROUTES } from '@/src/libs/routes';
 
+import { useUiStore } from '@/src/stores/uiStore';
+
 const links = [
 	{ href: ROUTES.ABOUT, label: 'O nas' },
 	{ href: ROUTES.VINEYARD, label: 'Winnica' },
@@ -22,6 +24,17 @@ const links = [
 
 const Navigation = () => {
 	const pathname = usePathname();
+
+	const {
+		isCartOpen,
+		openCart,
+		closeCart,
+		isNavMenuOpen,
+		openNavMenu,
+		closeNavMenu,
+	} = useUiStore();
+
+	console.log(isCartOpen, isNavMenuOpen);
 
 	const navigationClassName = clsx(
 		'fixed z-100 top-0 flex items-center justify-between w-full gap-2 p-4 lg:p-6.75 bg-off-white',
@@ -46,11 +59,11 @@ const Navigation = () => {
 				</ul>
 			</div>
 			<div className='flex flex-row items-center gap-6'>
-				<CartButton onClick={() => console.log('Cart clicked')} />
+				<CartButton onClick={isCartOpen ? closeCart : openCart} />
 				<MenuButton
 					className='lg:hidden'
-					isOpen={false}
-					onClick={() => console.log('Menu clicked')}
+					isOpen={isNavMenuOpen}
+					onClick={isNavMenuOpen ? closeNavMenu : openNavMenu}
 				/>
 			</div>
 		</nav>
