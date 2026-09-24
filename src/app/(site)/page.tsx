@@ -4,7 +4,7 @@ import { client } from '@/src/sanity/lib/client';
 
 import { HomePageQueryResult } from '@/sanity.types';
 
-import HomePage from '@/src/components/pages/HomePage';
+import { HomePage } from '@/src/components/pages';
 
 export const revalidate = 30;
 

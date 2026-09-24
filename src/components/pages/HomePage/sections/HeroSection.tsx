@@ -1,5 +1,9 @@
+"use client"
 import { HomePageQueryResult } from '@/sanity.types';
 import { RotatingText } from '../components';
+
+import { Button } from '@/src/components/atoms';
+import Link from 'next/link';
 
 import clsx from 'clsx';
 
@@ -29,13 +33,14 @@ const HeroSection = ({ data, className }: Props) => {
 				aria-hidden='true'
 				className='pointer-events-none absolute inset-0 top-0 z-2 bg-linear-to-br from-black/25 via-black/10 to-transparent'
 			/>
-			<div className='z-3'>
-				<h1 className='text-display text-off-white absolute bottom-12 left-4 md:left-7 md:bottom-1/2 md:translate-y-1/2'>
+			<div className='absolute bottom-12 left-4 right-4 md:left-7 md:bottom-1/2 md:translate-y-1/2 z-3'>
+				<h1 className='text-display text-off-white'>
 					{data.heading.lineOne}
 					<br />
 					{data.heading.lineTwo.fixed}{' '}
 					<RotatingText words={data.heading.lineTwo.rotating} />
 				</h1>
+				<Button.Link href="/wina" variant="light" className='mt-8 w-full sm:w-fit'>Zobacz nasze wina</Button.Link>
 			</div>
 		</section>
 	);
