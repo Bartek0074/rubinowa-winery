@@ -53,22 +53,31 @@ const Navigation = () => {
 		closeNavMenu,
 	} = useUiStore();
 
-	const isTransparent = canBeBlank && !isScrolled && !isNavMenuOpen;
-
 	const navigationClassName = clsx(
 		'fixed z-100 top-0 flex items-center justify-between w-full gap-2 p-4 lg:p-7 transition-colors ease-editorial',
-		isTransparent ? 'bg-transparent' : 'bg-off-white',
+		canBeBlank
+			? isScrolled || isNavMenuOpen
+				? 'bg-off-white'
+				: 'bg-transparent'
+			: 'bg-off-white',
 	);
 
 	const logoClassName = clsx(
 		'h-5.5 xs:h-6  hover:opacity-85 transition-[opacity, background-color] ease-editorial',
-		// canBeBlank
-		// 	? isScrolled || isNavMenuOpen
-		// 		? 'text-black'
-		// 		: 'text-off-white'
-		// 	: 'text-black',
-		isTransparent ? 'text-off-white' : 'text-black',
+		canBeBlank
+			? isScrolled || isNavMenuOpen
+				? 'text-black'
+				: 'text-off-white'
+			: 'text-black',
 	);
+
+	console.log({
+    pathname,
+    home: ROUTES.HOME,
+    canBeBlank,
+    isScrolled,
+    isNavMenuOpen,
+});
 
 	return (
 		<nav className={navigationClassName}>
@@ -78,6 +87,7 @@ const Navigation = () => {
 					onClick={isNavMenuOpen ? closeNavMenu : undefined}
 				>
 					<LogoWoodmark className={logoClassName} />
+					test
 				</Link>
 				<ul className='hidden lg:flex flex-row gap-6.75'>
 					{LINKS.map((link) => (
