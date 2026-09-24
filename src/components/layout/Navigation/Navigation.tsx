@@ -29,16 +29,16 @@ const Navigation = () => {
 
 	const [isScrolled, setIsScrolled] = useState(false);
 
-	useEffect(() => {
-		const handleScroll = () => {
-			setIsScrolled(window.scrollY > 32);
-		};
+	// useEffect(() => {
+	// 	const handleScroll = () => {
+	// 		setIsScrolled(window.scrollY > 32);
+	// 	};
 
-		window.addEventListener('scroll', handleScroll);
-		return () => {
-			window.removeEventListener('scroll', handleScroll);
-		};
-	}, []);
+	// 	window.addEventListener('scroll', handleScroll);
+	// 	return () => {
+	// 		window.removeEventListener('scroll', handleScroll);
+	// 	};
+	// }, []);
 
 	const {
 		isCartOpen,
