@@ -1,9 +1,7 @@
-"use client"
 import { HomePageQueryResult } from '@/sanity.types';
 import { RotatingText } from '../components';
 
 import { Button } from '@/src/components/atoms';
-import Link from 'next/link';
 
 import clsx from 'clsx';
 
