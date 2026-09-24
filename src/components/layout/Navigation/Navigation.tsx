@@ -2,7 +2,7 @@
 
 import clsx from 'clsx';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useLayoutEffect } from 'react';
 
 import { usePathname } from 'next/navigation';
 
@@ -29,7 +29,6 @@ const LINK_SUPPORTED_BLANK_MODE = [ROUTES.HOME];
 const Navigation = () => {
 	const pathname = usePathname();
 
-	const [y, setY] = useState(0);
 	const [isBlank, setIsBlank] = useState(
 		LINK_SUPPORTED_BLANK_MODE.includes(pathname),
 	);
@@ -43,31 +42,49 @@ const Navigation = () => {
 		closeNavMenu,
 	} = useUiStore();
 
-	useEffect(() => {
-		const handleScroll = () => {
-			setY(window.scrollY);
-		};
+	useLayoutEffect(() => {
+    const update = () => {
+        setIsBlank(
+            pathname === ROUTES.HOME &&
+            window.scrollY <= 32 &&
+            !isNavMenuOpen,
+        );
+    };
 
-		handleScroll();
+    update();
 
-		window.addEventListener('scroll', handleScroll);
-		return () => {
-			window.removeEventListener('scroll', handleScroll);
-		};
-	}, []);
+    window.addEventListener('scroll', update);
 
-	useEffect(() => {
-		const isSupportedBlankMode = LINK_SUPPORTED_BLANK_MODE.includes(pathname);
+    return () => {
+        window.removeEventListener('scroll', update);
+    };
+}, [pathname, isNavMenuOpen]);
 
-		if (!isSupportedBlankMode) {
-			setIsBlank(false);
-			return;
-		}
+	// useEffect(() => {
+	// 	const handleScroll = () => {
+	// 		setY(window.scrollY);
+	// 	};
 
-		const newIsBlank = isSupportedBlankMode && y <= 32 && !isNavMenuOpen;
+	// 	handleScroll();
 
-		setIsBlank(newIsBlank);
-	}, [pathname, y, isNavMenuOpen]);
+	// 	window.addEventListener('scroll', handleScroll);
+	// 	return () => {
+	// 		window.removeEventListener('scroll', handleScroll);
+	// 	};
+	// }, []);
+
+	// useEffect(() => {
+	// 	const isSupportedBlankMode = LINK_SUPPORTED_BLANK_MODE.includes(pathname);
+
+	// 	if (!isSupportedBlankMode) {
+	// 		setIsBlank(false);
+	// 		return;
+	// 	}
+
+	// 	const newIsBlank = isSupportedBlankMode && y <= 32 && !isNavMenuOpen;
+
+	// 	setIsBlank(newIsBlank);
+	// }, [pathname, y, isNavMenuOpen]);
 
 	const navigationClassName = clsx(
 		'fixed z-100 top-0 flex items-center justify-between w-full gap-2 p-4 lg:p-7 transition-colors ease-editorial',
