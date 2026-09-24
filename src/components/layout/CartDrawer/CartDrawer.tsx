@@ -59,7 +59,7 @@ const CartDrawer = () => {
 				className='timeout-opacity pointer-events-none fixed z-110 inset-y-0 right-0 w-full bg-off-white p-4 lg:max-w-120 lg:p-7'
 			>
 				<div className='flex justify-end mb-4'>
-					<MenuButton onClick={closeCart} isOpen={true} isBlack={true} />
+					<MenuButton onClick={closeCart} isOpen={true} isBlank={false} />
 				</div>
 				<div className='py-4'>
 					<p className='text-lead'>Zawartość Koszyka</p>
