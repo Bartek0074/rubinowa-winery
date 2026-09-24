@@ -29,23 +29,11 @@ const LINK_SUPPORTED_BLANK_MODE = [ROUTES.HOME];
 const Navigation = () => {
 	const pathname = usePathname();
 
-	const [isScrolled, setIsScrolled] = useState(false);
+	const [y, setY] = useState(0)
+
+	const [isBlank, setIsBlank] = useState(true);
+
 	const [isMounted, setIsMounted] = useState(false);
-
-	const canBeBlank = LINK_SUPPORTED_BLANK_MODE.includes(pathname);
-
-	useEffect(() => {
-		setIsMounted(true);
-
-		const handleScroll = () => {
-			setIsScrolled(window.scrollY > 32);
-		};
-
-		window.addEventListener('scroll', handleScroll);
-		return () => {
-			window.removeEventListener('scroll', handleScroll);
-		};
-	}, []);
 
 	const {
 		isCartOpen,
@@ -56,30 +44,44 @@ const Navigation = () => {
 		closeNavMenu,
 	} = useUiStore();
 
+	useEffect(() => {
+		const isSupportedPath = LINK_SUPPORTED_BLANK_MODE.includes(pathname);
+
+		if (!isSupportedPath) {
+			setIsBlank(false);
+			return
+		}
+
+		setIsBlank(y < 32 && !isNavMenuOpen);
+	}, [y, isNavMenuOpen, pathname]);
+
+	useEffect(() => {
+		setIsMounted(true);
+
+		const handleScroll = () => {
+			setY(window.scrollY);
+		};
+
+		window.addEventListener('scroll', handleScroll);
+		return () => {
+			window.removeEventListener('scroll', handleScroll);
+		};
+	}, []);
+
+
+
 	const navigationClassName = clsx(
 		'fixed z-100 top-0 flex items-center justify-between w-full gap-2 p-4 lg:p-7 transition-colors ease-editorial',
-		canBeBlank
-			? isScrolled || isNavMenuOpen
-				? 'bg-off-white'
-				: 'bg-transparent'
-			: 'bg-off-white',
+		isBlank ? 'bg-transparent' : 'bg-off-white',
 	);
 
 	const logoClassName = clsx(
 		'h-5.5 xs:h-6  hover:opacity-85 transition-[opacity, background-color] ease-editorial',
-		canBeBlank
-			? isScrolled || isNavMenuOpen
-				? 'text-black'
-				: 'text-off-white'
-			: 'text-black',
+		isBlank ? 'text-off-white' : 'text-black',
 	);
 
-	// if (!isMounted) {
-	// 	return null;
-	// }
-
 	return (
-		<nav className={navigationClassName} key={isMounted.toString()}>
+		<nav className={navigationClassName} key={isMounted ? 0 : 1}>
 			<div className='flex flex-row items-center justify-center gap-7.25'>
 				<Link
 					href={ROUTES.HOME}
@@ -94,7 +96,7 @@ const Navigation = () => {
 								href={link.href}
 								text={link.label}
 								isActive={link.href === pathname}
-								isBlack={isScrolled || isNavMenuOpen || !canBeBlank}
+								isBlack={!isBlank}
 							/>
 						</li>
 					))}
@@ -103,13 +105,13 @@ const Navigation = () => {
 			<div className='flex flex-row items-center gap-6'>
 				<CartButton
 					onClick={isCartOpen ? closeCart : openCart}
-					isBlack={isScrolled || isNavMenuOpen || !canBeBlank}
+					isBlack={!isBlank}
 				/>
 				<MenuButton
 					className='lg:hidden'
 					isOpen={isNavMenuOpen}
 					onClick={isNavMenuOpen ? closeNavMenu : openNavMenu}
-					isBlack={isScrolled || isNavMenuOpen || !canBeBlank}
+					isBlack={!isBlank}
 				/>
 			</div>
 		</nav>
