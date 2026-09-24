@@ -29,20 +29,10 @@ const LINK_SUPPORTED_BLANK_MODE = [ROUTES.HOME];
 const Navigation = () => {
 	const pathname = usePathname();
 
-	const [isScrolled, setIsScrolled] = useState(false);
-
-	const canBeBlank = LINK_SUPPORTED_BLANK_MODE.includes(pathname);
-
-	useEffect(() => {
-		const handleScroll = () => {
-			setIsScrolled(window.scrollY > 32);
-		};
-
-		window.addEventListener('scroll', handleScroll);
-		return () => {
-			window.removeEventListener('scroll', handleScroll);
-		};
-	}, []);
+	const [y, setY] = useState(0);
+	const [isBlank, setIsBlank] = useState(
+		LINK_SUPPORTED_BLANK_MODE.includes(pathname),
+	);
 
 	const {
 		isCartOpen,
@@ -53,22 +43,50 @@ const Navigation = () => {
 		closeNavMenu,
 	} = useUiStore();
 
+	useEffect(() => {
+		const handleScroll = () => {
+			setY(window.scrollY);
+		};
+
+		handleScroll();
+
+		window.addEventListener('scroll', handleScroll);
+		return () => {
+			window.removeEventListener('scroll', handleScroll);
+		};
+	}, []);
+
+	useEffect(() => {
+		const isSupportedBlankMode = LINK_SUPPORTED_BLANK_MODE.includes(pathname);
+
+		if (!isSupportedBlankMode) {
+			setIsBlank(false);
+			return;
+		}
+
+		const newIsBlank = isSupportedBlankMode && y <= 32 && !isNavMenuOpen;
+
+		setIsBlank(newIsBlank);
+	}, [pathname, y, isNavMenuOpen]);
+
 	const navigationClassName = clsx(
 		'fixed z-100 top-0 flex items-center justify-between w-full gap-2 p-4 lg:p-7 transition-colors ease-editorial',
-		canBeBlank
-			? isScrolled || isNavMenuOpen
-				? 'bg-off-white'
-				: 'bg-transparent'
-			: 'bg-off-white',
+		isBlank ? 'bg-transparent' : 'bg-off-white',
+		// canBeBlank
+		// 	? isScrolled || isNavMenuOpen
+		// 		? 'bg-off-white'
+		// 		: 'bg-transparent'
+		// 	: 'bg-off-white',
 	);
 
 	const logoClassName = clsx(
 		'h-5.5 xs:h-6  hover:opacity-85 transition-[opacity, background-color] ease-editorial',
-		canBeBlank
-			? isScrolled || isNavMenuOpen
-				? 'text-black'
-				: 'text-off-white'
-			: 'text-black',
+		isBlank ? 'text-off-white' : 'text-black',
+		// canBeBlank
+		// 	? isScrolled || isNavMenuOpen
+		// 		? 'text-black'
+		// 		: 'text-off-white'
+		// 	: 'text-black',
 	);
 
 	return (
@@ -87,7 +105,7 @@ const Navigation = () => {
 								href={link.href}
 								text={link.label}
 								isActive={link.href === pathname}
-								isBlack={isScrolled || isNavMenuOpen || !canBeBlank}
+								isBlack={!isBlank}
 							/>
 						</li>
 					))}
@@ -96,13 +114,13 @@ const Navigation = () => {
 			<div className='flex flex-row items-center gap-6'>
 				<CartButton
 					onClick={isCartOpen ? closeCart : openCart}
-					isBlack={isScrolled || isNavMenuOpen || !canBeBlank}
+					isBlack={!isBlank}
 				/>
 				<MenuButton
 					className='lg:hidden'
 					isOpen={isNavMenuOpen}
 					onClick={isNavMenuOpen ? closeNavMenu : openNavMenu}
-					isBlack={isScrolled || isNavMenuOpen || !canBeBlank}
+					isBlack={!isBlank}
 				/>
 			</div>
 		</nav>
