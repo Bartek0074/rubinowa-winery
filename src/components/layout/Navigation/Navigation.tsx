@@ -70,13 +70,13 @@ const Navigation = () => {
 				: 'text-off-white'
 			: 'text-black',
 	);
-
-	console.log({
+console.log({
     pathname,
     home: ROUTES.HOME,
     canBeBlank,
     isScrolled,
     isNavMenuOpen,
+    navigationClassName,
 });
 
 	return (
