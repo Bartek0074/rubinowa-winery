@@ -1,4 +1,5 @@
 import { HomePageQueryResult } from '@/sanity.types';
+import { RotatingText } from '../components';
 
 import clsx from 'clsx';
 
@@ -30,9 +31,10 @@ const HeroSection = ({ data, className }: Props) => {
 			/>
 			<div className='z-3'>
 				<h1 className='text-display text-off-white absolute bottom-12 left-4 md:left-7 md:bottom-1/2 md:translate-y-1/2'>
-					Poznaj aromat i smak
+					{data.heading.lineOne}
 					<br />
-					Winnicy Rubinowej.
+					{data.heading.lineTwo.fixed}{' '}
+					<RotatingText words={data.heading.lineTwo.rotating} />
 				</h1>
 			</div>
 		</section>

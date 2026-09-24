@@ -49,6 +49,7 @@ export default defineType({
 					name: 'heading',
 					title: 'Nagłówek',
 					type: 'object',
+					validation: (Rule) => Rule.required(),
 					fields: [
 						defineField({
 							name: 'lineOne',
@@ -61,6 +62,7 @@ export default defineType({
 							name: 'lineTwo',
 							title: 'Linia 2',
 							type: 'object',
+							validation: (Rule) => Rule.required(),
 							fields: [
 								defineField({
 									name: 'fixed',
