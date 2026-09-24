@@ -1,9 +1,11 @@
 import { HomePageQueryResult } from '@/sanity.types';
-import { RotatingText } from '../components';
-
-import { Button } from '@/src/components/atoms';
 
 import clsx from 'clsx';
+
+import { Button } from '@/src/components/atoms';
+import { RotatingText } from '../components';
+
+import { isExternalLink } from '@/src/libs/utils';
 
 type Props = {
 	data: NonNullable<HomePageQueryResult>['heroSection'];
@@ -38,7 +40,23 @@ const HeroSection = ({ data, className }: Props) => {
 					{data.heading.lineTwo.fixed}{' '}
 					<RotatingText words={data.heading.lineTwo.rotating} />
 				</h1>
-				<Button.Link href="/wina" variant="light" className='mt-8 w-full sm:w-fit'>Zobacz nasze wina</Button.Link>
+				{isExternalLink(data.cta.url) ? (
+					<Button.Anchor
+						href={data.cta.url}
+						variant='light'
+						className='mt-8 w-full sm:w-fit'
+					>
+						{data.cta.label}
+					</Button.Anchor>
+				) : (
+					<Button.Link
+						href={data.cta.url}
+						variant='light'
+						className='mt-8 w-full sm:w-fit'
+					>
+						{data.cta.label}
+					</Button.Link>
+				)}
 			</div>
 		</section>
 	);

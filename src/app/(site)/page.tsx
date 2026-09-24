@@ -30,6 +30,10 @@ export default async function Home() {
 					fixed,
 					rotating
 				}
+			},
+			cta {
+				label,
+				url
 			}
         },
     }`);

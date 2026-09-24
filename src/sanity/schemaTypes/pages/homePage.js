@@ -87,6 +87,27 @@ export default defineType({
 						}),
 					],
 				}),
+
+				defineField({
+					name: 'cta',
+					title: 'Przycisk CTA',
+					type: 'object',
+					validation: (Rule) => Rule.required(),
+					fields: [
+						defineField({
+							name: 'label',
+							title: 'Tekst',
+							type: 'string',
+							validation: (Rule) => Rule.required().max(25),
+						}),
+						defineField({
+							name: 'url',
+							title: 'URL',
+							type: 'url',
+							validation: (Rule) => Rule.required().uri({ allowRelative: true }),
+						}),
+					],
+				}),
 			],
 		}),
 	],
