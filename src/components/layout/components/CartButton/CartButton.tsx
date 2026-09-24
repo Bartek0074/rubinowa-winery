@@ -2,11 +2,11 @@ import { IconShoppingBag } from '@tabler/icons-react';
 
 type CartButtonProps = {
 	onClick: () => void;
-	isBlack?: boolean;
+	isBlank?: boolean;
 	className?: string;
 };
 
-const CartButton = ({ onClick, isBlack, className }: CartButtonProps) => {
+const CartButton = ({ onClick, isBlank, className }: CartButtonProps) => {
 	return (
 		<button
 			type='button'
@@ -16,7 +16,7 @@ const CartButton = ({ onClick, isBlack, className }: CartButtonProps) => {
 			aria-controls='cart-overlay'
 		>
 			<IconShoppingBag
-				className={`w-9 h-9 lg:w-8 lg:h-8 transition-colors ease-editorial ${isBlack ? 'text-black' : 'text-off-white'}`}
+				className={`w-9 h-9 lg:w-8 lg:h-8 transition-colors ease-editorial ${isBlank ? 'text-off-white' : 'text-black'}`}
 				strokeWidth={1.25}
 			/>
 		</button>

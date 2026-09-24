@@ -29,7 +29,7 @@ const LINK_SUPPORTED_BLANK_MODE = [ROUTES.HOME];
 const Navigation = () => {
 	const pathname = usePathname();
 
-	const [y, setY] = useState(0)
+	const [y, setY] = useState(0);
 
 	const [isBlank, setIsBlank] = useState(true);
 
@@ -48,14 +48,16 @@ const Navigation = () => {
 		const isSupportedPath = LINK_SUPPORTED_BLANK_MODE.includes(pathname);
 
 		if (!isSupportedPath) {
+			// eslint-disable-next-line react-hooks/set-state-in-effect
 			setIsBlank(false);
-			return
+			return;
 		}
 
-		setIsBlank(y < 32 && !isNavMenuOpen);
+		setIsBlank(y < 64 && !isNavMenuOpen);
 	}, [y, isNavMenuOpen, pathname]);
 
 	useEffect(() => {
+		// eslint-disable-next-line react-hooks/set-state-in-effect
 		setIsMounted(true);
 
 		const handleScroll = () => {
@@ -67,8 +69,6 @@ const Navigation = () => {
 			window.removeEventListener('scroll', handleScroll);
 		};
 	}, []);
-
-
 
 	const navigationClassName = clsx(
 		'fixed z-100 top-0 flex items-center justify-between w-full gap-2 p-4 lg:p-7 transition-colors ease-editorial',
@@ -96,7 +96,7 @@ const Navigation = () => {
 								href={link.href}
 								text={link.label}
 								isActive={link.href === pathname}
-								isBlack={!isBlank}
+								isBlank={isBlank}
 							/>
 						</li>
 					))}
@@ -105,13 +105,13 @@ const Navigation = () => {
 			<div className='flex flex-row items-center gap-6'>
 				<CartButton
 					onClick={isCartOpen ? closeCart : openCart}
-					isBlack={!isBlank}
+					isBlank={isBlank}
 				/>
 				<MenuButton
 					className='lg:hidden'
 					isOpen={isNavMenuOpen}
 					onClick={isNavMenuOpen ? closeNavMenu : openNavMenu}
-					isBlack={!isBlank}
+					isBlank={isBlank}
 				/>
 			</div>
 		</nav>

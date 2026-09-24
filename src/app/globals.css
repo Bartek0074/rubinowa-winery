@@ -418,3 +418,16 @@ html {
 @utility timeout-opacity {
 	animation: timeout-opacity 0.75s steps(1, end) forwards;
 }
+
+@keyframes fade-in {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@utility fade-in {
+	animation: fade-in 0.5s forwards cubic-bezier(0.76, 0, 0.24, 1);
+}
