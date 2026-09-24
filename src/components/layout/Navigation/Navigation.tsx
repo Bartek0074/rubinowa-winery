@@ -70,17 +70,9 @@ const Navigation = () => {
 				: 'text-off-white'
 			: 'text-black',
 	);
-console.log({
-    pathname,
-    home: ROUTES.HOME,
-    canBeBlank,
-    isScrolled,
-    isNavMenuOpen,
-    navigationClassName,
-});
-
+	
 	return (
-		<nav className={navigationClassName}>
+		<nav className={navigationClassName} key={pathname}>
 			<div className='flex flex-row items-center justify-center gap-7.25'>
 				<Link
 					href={ROUTES.HOME}
