@@ -88,7 +88,8 @@ const Navigation = () => {
 
 	const navigationClassName = clsx(
 		'fixed z-100 top-0 flex items-center justify-between w-full gap-2 p-4 lg:p-7 transition-colors ease-editorial',
-		isBlank ? 'bg-transparent' : 'bg-off-white',
+		isBlank && 'bg-transparent',
+		!isBlank && 'bg-off-white' 
 		// canBeBlank
 		// 	? isScrolled || isNavMenuOpen
 		// 		? 'bg-off-white'
@@ -98,7 +99,9 @@ const Navigation = () => {
 
 	const logoClassName = clsx(
 		'h-5.5 xs:h-6  hover:opacity-85 transition-[opacity, background-color] ease-editorial',
-		isBlank ? 'text-off-white' : 'text-black',
+		isBlank && 'text-off-white',
+		!isBlank && 'text-black',
+		// isBlank ? 'text-off-white' : 'text-black',
 		// canBeBlank
 		// 	? isScrolled || isNavMenuOpen
 		// 		? 'text-black'
