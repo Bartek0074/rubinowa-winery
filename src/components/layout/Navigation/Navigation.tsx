@@ -64,7 +64,7 @@ const Navigation = () => {
 	);
 
 	return (
-		<nav className={navigationClassName} key={pathname}>
+		<nav className={navigationClassName}>
 			<div className='flex flex-row items-center justify-center gap-7.25'>
 				<Link
 					href={ROUTES.HOME}
