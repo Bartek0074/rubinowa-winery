@@ -25,7 +25,7 @@ const LINKS = [
 ];
 
 const Navigation = () => {
-	const pathname = usePathname();
+	// const pathname = usePathname();
 
 	const [isScrolled, setIsScrolled] = useState(false);
 
@@ -77,7 +77,7 @@ const Navigation = () => {
 							<NavLinkDesktop
 								href={link.href}
 								text={link.label}
-								isActive={link.href === pathname}
+								isActive={false}
 								isBlack={isScrolled || isNavMenuOpen}
 							/>
 						</li>
