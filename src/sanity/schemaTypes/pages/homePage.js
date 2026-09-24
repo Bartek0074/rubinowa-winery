@@ -48,8 +48,42 @@ export default defineType({
 				defineField({
 					name: 'heading',
 					title: 'Nagłówek',
-					type: 'string',
-					validation: (Rule) => Rule.required().max(50),
+					type: 'object',
+					fields: [
+						defineField({
+							name: 'lineOne',
+							title: 'Linia 1',
+							type: 'string',
+							validation: (Rule) => Rule.required().max(25),
+						}),
+
+						defineField({
+							name: 'lineTwo',
+							title: 'Linia 2',
+							type: 'object',
+							fields: [
+								defineField({
+									name: 'fixed',
+									title: 'Tekst stały',
+									type: 'string',
+									validation: (Rule) => Rule.required().max(10),
+								}),
+
+								defineField({
+									name: 'rotating',
+									title: 'Tekst zmienny',
+									type: 'array',
+									of: [
+										{
+											type: 'string',
+											validation: (Rule) => Rule.required().max(15),
+										},
+									],
+									validation: (Rule) => Rule.required().min(3).max(5),
+								}),
+							],
+						}),
+					],
 				}),
 			],
 		}),

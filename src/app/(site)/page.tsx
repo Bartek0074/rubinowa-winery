@@ -24,12 +24,18 @@ export async function generateMetadata() {
 export default async function Home() {
 	const homePageQuery = defineQuery(`*[_type == "homePage"][0]{
         heroSection {
-            heading
+            heading {
+				lineOne,
+				lineTwo { 
+					fixed,
+					rotating
+				}
+			}
         },
     }`);
 
 	const homePageData =
 		await client.fetch<NonNullable<HomePageQueryResult>>(homePageQuery);
 
-	return <HomePage />;
+	return <HomePage data={homePageData} />;
 }

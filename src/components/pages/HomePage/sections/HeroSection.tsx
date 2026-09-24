@@ -1,10 +1,13 @@
+import { HomePageQueryResult } from '@/sanity.types';
+
 import clsx from 'clsx';
 
 type Props = {
+	data: NonNullable<HomePageQueryResult>['heroSection'];
 	className?: string;
 };
 
-const HeroSection = ({ className }: Props) => {
+const HeroSection = ({ data, className }: Props) => {
 	const sectionClassName = clsx(
 		'relative flex min-h-svh overflow-hidden',
 		className,
