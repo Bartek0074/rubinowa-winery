@@ -24,14 +24,10 @@ const LINKS = [
 	{ href: ROUTES.CONTACT, label: 'Kontakt' },
 ];
 
-const LINK_SUPPORTED_BLANK_MODE = [ROUTES.HOME];
-
 const Navigation = () => {
 	const pathname = usePathname();
 
 	const [isScrolled, setIsScrolled] = useState(false);
-
-	const canBeBlank = LINK_SUPPORTED_BLANK_MODE.includes(pathname);
 
 	useEffect(() => {
 		const handleScroll = () => {
@@ -55,22 +51,18 @@ const Navigation = () => {
 
 	const navigationClassName = clsx(
 		'fixed z-100 top-0 flex items-center justify-between w-full gap-2 p-4 lg:p-7 transition-colors ease-editorial',
-		canBeBlank
-			? isScrolled || isNavMenuOpen
-				? 'bg-off-white'
-				: 'bg-transparent'
-			: 'bg-off-white',
+		isScrolled || isNavMenuOpen
+			? 'bg-off-white'
+			: 'bg-transparent',
 	);
 
 	const logoClassName = clsx(
 		'h-5.5 xs:h-6  hover:opacity-85 transition-[opacity, background-color] ease-editorial',
-		canBeBlank
-			? isScrolled || isNavMenuOpen
-				? 'text-black'
-				: 'text-off-white'
-			: 'text-black',
+		isScrolled || isNavMenuOpen
+			? 'text-black'
+			: 'text-off-white',
 	);
-	
+
 	return (
 		<nav className={navigationClassName} key={pathname}>
 			<div className='flex flex-row items-center justify-center gap-7.25'>
@@ -78,9 +70,7 @@ const Navigation = () => {
 					href={ROUTES.HOME}
 					onClick={isNavMenuOpen ? closeNavMenu : undefined}
 				>
-					<LogoWoodmark className={logoClassName} />
-					test
-				</Link>
+					<LogoWoodmark className={logoClassName} />				</Link>
 				<ul className='hidden lg:flex flex-row gap-6.75'>
 					{LINKS.map((link) => (
 						<li key={link.href}>
@@ -88,7 +78,7 @@ const Navigation = () => {
 								href={link.href}
 								text={link.label}
 								isActive={link.href === pathname}
-								isBlack={isScrolled || isNavMenuOpen || !canBeBlank}
+								isBlack={isScrolled || isNavMenuOpen}
 							/>
 						</li>
 					))}
@@ -97,13 +87,13 @@ const Navigation = () => {
 			<div className='flex flex-row items-center gap-6'>
 				<CartButton
 					onClick={isCartOpen ? closeCart : openCart}
-					isBlack={isScrolled || isNavMenuOpen || !canBeBlank}
+					isBlack={isScrolled || isNavMenuOpen}
 				/>
 				<MenuButton
 					className='lg:hidden'
 					isOpen={isNavMenuOpen}
 					onClick={isNavMenuOpen ? closeNavMenu : openNavMenu}
-					isBlack={isScrolled || isNavMenuOpen || !canBeBlank}
+					isBlack={isScrolled || isNavMenuOpen}
 				/>
 			</div>
 		</nav>
