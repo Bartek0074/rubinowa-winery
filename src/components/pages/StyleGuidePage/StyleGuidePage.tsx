@@ -25,7 +25,7 @@ const ColorBox = ({ colorClassName }: { colorClassName: string }) => {
         }
 
 
-        if (colorClassName === 'bg-white' || colorClassName === 'bg-off-white' || colorClassName === 'bg-beige') {
+        if (colorClassName === 'bg-white' || colorClassName === 'bg-off-white' || colorClassName === 'bg-soft-white' || colorClassName === 'bg-beige') {
             return 'text-black';
         }
         return 'text-white';
@@ -49,7 +49,7 @@ const StyleGuidePage = ({ }: StyleGuidePageProps) => {
     };
 
     return (
-        <div className='flex flex-col gap-16 px-16 py-12'>
+        <div className='flex flex-col gap-16 px-16 py-12 pt-36'>
             <section className='flex flex-col gap-4'>
                 <h2 className='text-h2 uppercase underline text-black'>Typografia</h2>
                 <div className='flex flex-col gap-2'>
@@ -70,6 +70,7 @@ const StyleGuidePage = ({ }: StyleGuidePageProps) => {
                     <div className="flex flex-row items-center  gap-2">
                         <ColorBox colorClassName='bg-white' />
                         <ColorBox colorClassName='bg-off-white' />
+                        <ColorBox colorClassName='bg-soft-white' />
                         <ColorBox colorClassName='bg-beige' />
                         <ColorBox colorClassName='bg-black-muted' />
                         <ColorBox colorClassName='bg-black' />
