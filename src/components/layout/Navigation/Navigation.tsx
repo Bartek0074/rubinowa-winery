@@ -2,7 +2,7 @@
 
 import clsx from 'clsx';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 import { usePathname } from 'next/navigation';
 
@@ -26,6 +26,10 @@ const LINKS = [
 
 const LINK_SUPPORTED_BLANK_MODE = [ROUTES.HOME];
 
+const HIDE_THRESHOLD = 600;
+const BLANK_THRESHOLD = 300;
+const SCROLL_THRESHOLD = 16;
+
 const Navigation = () => {
 	const pathname = usePathname();
 
@@ -33,7 +37,11 @@ const Navigation = () => {
 
 	const [isBlank, setIsBlank] = useState(true);
 
+	const [isHidden, setIsHidden] = useState(false);
+
 	const [isMounted, setIsMounted] = useState(false);
+
+	const prevY = useRef(0);
 
 	const {
 		isCartOpen,
@@ -53,7 +61,7 @@ const Navigation = () => {
 			return;
 		}
 
-		setIsBlank(y < 64 && !isNavMenuOpen);
+		setIsBlank(y < BLANK_THRESHOLD && !isNavMenuOpen);
 	}, [y, isNavMenuOpen, pathname]);
 
 	useEffect(() => {
@@ -61,17 +69,38 @@ const Navigation = () => {
 		setIsMounted(true);
 
 		const handleScroll = () => {
-			setY(window.scrollY);
+			const currentY = window.scrollY;
+			const delta = currentY - prevY.current;
+
+			setY(currentY);
+
+			if (currentY <= HIDE_THRESHOLD || isNavMenuOpen) {
+				setIsHidden(false);
+				prevY.current = currentY;
+				return;
+			}
+
+			if (Math.abs(delta) >= SCROLL_THRESHOLD) {
+				setIsHidden(delta > 0);
+				prevY.current = currentY;
+			}
 		};
 
-		window.addEventListener('scroll', handleScroll);
+		prevY.current = window.scrollY;
+		handleScroll();
+
+		window.addEventListener('scroll', handleScroll, {
+			passive: true,
+		});
+
 		return () => {
 			window.removeEventListener('scroll', handleScroll);
 		};
-	}, []);
+	}, [isNavMenuOpen]);
 
 	const navigationClassName = clsx(
-		'fixed z-100 top-0 flex items-center justify-between w-full gap-2 p-4 lg:p-7 transition-colors ease-editorial',
+		'fixed z-100 top-0 flex items-center justify-between w-full gap-2 p-4 lg:p-7 transition-[transform, background-color] ease-editorial',
+		isHidden && !isNavMenuOpen ? 'translate-y-[-100%]' : 'translate-y-0',
 		isBlank ? 'bg-transparent' : 'bg-off-white',
 	);
 
