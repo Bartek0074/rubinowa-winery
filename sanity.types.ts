@@ -15,6 +15,13 @@
 export declare const internalGroqTypeReferenceTo: unique symbol;
 
 // Source: schema.json
+export type SanityImageAssetReference = {
+  _ref: string;
+  _type: "reference";
+  _weak?: boolean;
+  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+};
+
 export type HomePage = {
   _id: string;
   _type: "homePage";
@@ -42,6 +49,38 @@ export type HomePage = {
     heading: string;
     text: string;
   };
+  discoverSections: Array<{
+    heading: string;
+    text: string;
+    image: {
+      asset?: SanityImageAssetReference;
+      media?: unknown;
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    };
+    cta: {
+      label: string;
+      url: string;
+    };
+    _key: string;
+  }>;
+};
+
+export type SanityImageCrop = {
+  _type: "sanity.imageCrop";
+  top: number;
+  bottom: number;
+  left: number;
+  right: number;
+};
+
+export type SanityImageHotspot = {
+  _type: "sanity.imageHotspot";
+  x: number;
+  y: number;
+  height: number;
+  width: number;
 };
 
 export type SanityImagePaletteSwatch = {
@@ -80,22 +119,6 @@ export type SanityImageMetadata = {
   thumbHash?: string;
   hasAlpha?: boolean;
   isOpaque?: boolean;
-};
-
-export type SanityImageHotspot = {
-  _type: "sanity.imageHotspot";
-  x: number;
-  y: number;
-  height: number;
-  width: number;
-};
-
-export type SanityImageCrop = {
-  _type: "sanity.imageCrop";
-  top: number;
-  bottom: number;
-  left: number;
-  right: number;
 };
 
 export type SanityFileAsset = {
@@ -164,13 +187,14 @@ export type Slug = {
 };
 
 export type AllSanitySchemaTypes =
+  | SanityImageAssetReference
   | HomePage
+  | SanityImageCrop
+  | SanityImageHotspot
   | SanityImagePaletteSwatch
   | SanityImagePalette
   | SanityImageDimensions
   | SanityImageMetadata
-  | SanityImageHotspot
-  | SanityImageCrop
   | SanityFileAsset
   | SanityAssetSourceData
   | SanityImageAsset
@@ -179,7 +203,7 @@ export type AllSanitySchemaTypes =
 
 // Source: src/app/(site)/page.tsx
 // Variable: homePageQuery
-// Query: *[_type == "homePage"][0]{        heroSection {            heading {				lineOne,				lineTwo { 					fixed,					rotating				}			},			cta {				label,				url			}        },		introSection {			heading,			text		},    }
+// Query: *[_type == "homePage"][0]{        heroSection {            heading {				lineOne,				lineTwo { 					fixed,					rotating				}			},			cta {				label,				url			}        },		introSection {			heading,			text		},		discoverSections[] {			heading,			text,			image,			cta {				label,				url			}		},    }
 export type HomePageQueryResult = {
   heroSection: {
     heading: {
@@ -198,12 +222,27 @@ export type HomePageQueryResult = {
     heading: string;
     text: string;
   };
+  discoverSections: Array<{
+    heading: string;
+    text: string;
+    image: {
+      asset?: SanityImageAssetReference;
+      media?: unknown;
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    };
+    cta: {
+      label: string;
+      url: string;
+    };
+  }>;
 } | null;
 
 // Query TypeMap
 import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
-    '*[_type == "homePage"][0]{\n        heroSection {\n            heading {\n\t\t\t\tlineOne,\n\t\t\t\tlineTwo { \n\t\t\t\t\tfixed,\n\t\t\t\t\trotating\n\t\t\t\t}\n\t\t\t},\n\t\t\tcta {\n\t\t\t\tlabel,\n\t\t\t\turl\n\t\t\t}\n        },\n\t\tintroSection {\n\t\t\theading,\n\t\t\ttext\n\t\t},\n    }': HomePageQueryResult;
+    '*[_type == "homePage"][0]{\n        heroSection {\n            heading {\n\t\t\t\tlineOne,\n\t\t\t\tlineTwo { \n\t\t\t\t\tfixed,\n\t\t\t\t\trotating\n\t\t\t\t}\n\t\t\t},\n\t\t\tcta {\n\t\t\t\tlabel,\n\t\t\t\turl\n\t\t\t}\n        },\n\t\tintroSection {\n\t\t\theading,\n\t\t\ttext\n\t\t},\n\t\tdiscoverSections[] {\n\t\t\theading,\n\t\t\ttext,\n\t\t\timage,\n\t\t\tcta {\n\t\t\t\tlabel,\n\t\t\t\turl\n\t\t\t}\n\t\t},\n    }': HomePageQueryResult;
   }
 }

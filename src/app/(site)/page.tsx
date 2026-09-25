@@ -40,6 +40,15 @@ export default async function Home() {
 			heading,
 			text
 		},
+		discoverSections[] {
+			heading,
+			text,
+			image,
+			cta {
+				label,
+				url
+			}
+		},
     }`);
 
 	const homePageData =

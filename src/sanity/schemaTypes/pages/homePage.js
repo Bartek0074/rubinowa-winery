@@ -104,7 +104,8 @@ export default defineType({
 							name: 'url',
 							title: 'URL',
 							type: 'url',
-							validation: (Rule) => Rule.required().uri({ allowRelative: true }),
+							validation: (Rule) =>
+								Rule.required().uri({ allowRelative: true }),
 						}),
 					],
 				}),
@@ -112,26 +113,82 @@ export default defineType({
 		}),
 
 		defineField({
-			name: "introSection",
-			title: "Sekcja Intro",
-			type: "object",
-			group: "content",
+			name: 'introSection',
+			title: 'Sekcja Intro',
+			type: 'object',
+			group: 'content',
 			validation: (Rule) => Rule.required(),
 			fields: [
 				defineField({
-					name: "heading",
-					title: "Nagłówek",
-					type: "string",
+					name: 'heading',
+					title: 'Nagłówek',
+					type: 'string',
 					validation: (Rule) => Rule.required().max(50),
 				}),
 				defineField({
-					name: "text",
-					title: "Tekst",
-					type: "text",
+					name: 'text',
+					title: 'Tekst',
+					type: 'text',
 					validation: (Rule) => Rule.required().max(250),
 				}),
 			],
-		})
+		}),
+
+		defineField({
+			name: 'discoverSections',
+			title: 'Sekcje Discover',
+			type: 'array',
+			group: 'content',
+			validation: (Rule) => Rule.required().min(3).max(3),
+			of: [
+				{
+					type: 'object',
+					fields: [
+						defineField({
+							name: 'heading',
+							title: 'Nagłówek',
+							type: 'string',
+							validation: (Rule) => Rule.required().max(15),
+						}),
+						defineField({
+							name: 'text',
+							title: 'Tekst',
+							type: 'text',
+							validation: (Rule) => Rule.required().max(30),
+						}),
+
+						defineField({
+							name: 'image',
+							title: 'Obraz',
+							type: 'image',
+							validation: (Rule) => Rule.required(),
+						}),
+
+						defineField({
+							name: 'cta',
+							title: 'Przycisk CTA',
+							type: 'object',
+							validation: (Rule) => Rule.required(),
+							fields: [
+								defineField({
+									name: 'label',
+									title: 'Tekst',
+									type: 'string',
+									validation: (Rule) => Rule.required().max(25),
+								}),
+								defineField({
+									name: 'url',
+									title: 'URL',
+									type: 'url',
+									validation: (Rule) =>
+										Rule.required().uri({ allowRelative: true }),
+								}),
+							],
+						}),
+					],
+				},
+			],
+		}),
 	],
 
 	preview: {
