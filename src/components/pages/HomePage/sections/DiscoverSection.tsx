@@ -22,7 +22,7 @@ const DiscoverSection = ({ data, className }: Props) => {
 				>
 					<div
 						className={clsx(
-							`relative w-full aspect-18/20`,
+							`relative w-full aspect-18/20 xl:aspect-auto xl:h-screen`,
 							index % 2 === 1 && 'md:order-2',
 						)}
 					>
