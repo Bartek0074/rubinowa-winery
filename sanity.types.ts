@@ -38,6 +38,10 @@ export type HomePage = {
       url: string;
     };
   };
+  introSection: {
+    heading: string;
+    text: string;
+  };
 };
 
 export type SanityImagePaletteSwatch = {
@@ -175,7 +179,7 @@ export type AllSanitySchemaTypes =
 
 // Source: src/app/(site)/page.tsx
 // Variable: homePageQuery
-// Query: *[_type == "homePage"][0]{        heroSection {            heading {				lineOne,				lineTwo { 					fixed,					rotating				}			},			cta {				label,				url			}        },    }
+// Query: *[_type == "homePage"][0]{        heroSection {            heading {				lineOne,				lineTwo { 					fixed,					rotating				}			},			cta {				label,				url			}        },		introSection {			heading,			text		},    }
 export type HomePageQueryResult = {
   heroSection: {
     heading: {
@@ -190,12 +194,16 @@ export type HomePageQueryResult = {
       url: string;
     };
   };
+  introSection: {
+    heading: string;
+    text: string;
+  };
 } | null;
 
 // Query TypeMap
 import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
-    '*[_type == "homePage"][0]{\n        heroSection {\n            heading {\n\t\t\t\tlineOne,\n\t\t\t\tlineTwo { \n\t\t\t\t\tfixed,\n\t\t\t\t\trotating\n\t\t\t\t}\n\t\t\t},\n\t\t\tcta {\n\t\t\t\tlabel,\n\t\t\t\turl\n\t\t\t}\n        },\n    }': HomePageQueryResult;
+    '*[_type == "homePage"][0]{\n        heroSection {\n            heading {\n\t\t\t\tlineOne,\n\t\t\t\tlineTwo { \n\t\t\t\t\tfixed,\n\t\t\t\t\trotating\n\t\t\t\t}\n\t\t\t},\n\t\t\tcta {\n\t\t\t\tlabel,\n\t\t\t\turl\n\t\t\t}\n        },\n\t\tintroSection {\n\t\t\theading,\n\t\t\ttext\n\t\t},\n    }': HomePageQueryResult;
   }
 }

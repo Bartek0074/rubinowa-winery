@@ -10,8 +10,8 @@ export const revalidate = 30;
 
 export async function generateMetadata() {
 	const meta = await client.fetch(`*[_type == "homePage"][0]{
-    seo
-  }`);
+		seo
+	}`);
 
 	if (!meta) return { title: '', description: '' };
 
@@ -36,6 +36,10 @@ export default async function Home() {
 				url
 			}
         },
+		introSection {
+			heading,
+			text
+		},
     }`);
 
 	const homePageData =

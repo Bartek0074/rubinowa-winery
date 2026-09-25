@@ -110,6 +110,28 @@ export default defineType({
 				}),
 			],
 		}),
+
+		defineField({
+			name: "introSection",
+			title: "Sekcja Intro",
+			type: "object",
+			group: "content",
+			validation: (Rule) => Rule.required(),
+			fields: [
+				defineField({
+					name: "heading",
+					title: "Nagłówek",
+					type: "string",
+					validation: (Rule) => Rule.required().max(50),
+				}),
+				defineField({
+					name: "text",
+					title: "Tekst",
+					type: "text",
+					validation: (Rule) => Rule.required().max(250),
+				}),
+			],
+		})
 	],
 
 	preview: {
