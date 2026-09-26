@@ -7,6 +7,8 @@ import { urlFor } from '@/src/sanity/lib/image';
 
 import { Button } from '@/src/components/atoms';
 
+import { ScrollScale } from '@/src/components/animations';
+
 type Props = {
 	data: NonNullable<HomePageQueryResult>['discoverSections'];
 	className?: string;
@@ -26,6 +28,8 @@ const DiscoverSection = ({ data, className }: Props) => {
 							index % 2 === 1 && 'md:order-2',
 						)}
 					>
+						<ScrollScale className='relative h-full w-full'>
+
 						<Image
 							src={urlFor(section.image).url()}
 							alt={section.heading}
@@ -33,7 +37,9 @@ const DiscoverSection = ({ data, className }: Props) => {
 							quality={90}
 							fill
 							className='object-cover object-center'
-						/>
+							// add alt to sanity and use it here
+							/>
+							</ScrollScale>
 					</div>
 					<div className='flex flex-col items-center justify-center py-8 px-4 bg-soft-white'>
 						<h2 className='text-h1 text-center uppercase'>{section.heading}</h2>

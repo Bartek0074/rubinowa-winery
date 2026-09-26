@@ -28,14 +28,14 @@ const CartDrawer = () => {
 			gsap.to(drawer, {
 				xPercent: isCartOpen ? 0 : 100,
 				duration: 0.5,
-				ease: 'power4.inOut',
+				ease: 'power2.inOut',
 				pointerEvents: isCartOpen ? 'auto' : 'none',
 			});
 
 			gsap.to(backdrop, {
 				opacity: isCartOpen ? 1 : 0,
 				duration: 0.5,
-				ease: 'power4.inOut',
+				ease: 'power2.inOut',
 				pointerEvents: isCartOpen ? 'auto' : 'none',
 			});
 		},

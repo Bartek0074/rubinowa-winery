@@ -1,0 +1,1 @@
+export { default as ScrollScale } from './ScrollScale';

@@ -34,7 +34,7 @@ const MobileNavigation = () => {
 			gsap.to(drawerRef.current, {
 				xPercent: isNavMenuOpen ? 0 : 100,
 				duration: 0.5,
-				ease: 'power4.inOut',
+				ease: 'power2.inOut',
 			});
 		},
 		{
