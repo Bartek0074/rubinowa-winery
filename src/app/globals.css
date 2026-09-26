@@ -2,7 +2,7 @@
 
 :root {
 	--foreground: #242426;
-	--background: #ebeaea;
+	--background: #e7e6e4;
 }
 
 @theme inline {
@@ -29,9 +29,9 @@
 
 	--color-white: #ffffff;
 	--color-off-white: #fafaf8;
-	--color-soft-white: #ebeaea;
+	--color-soft-white: #e7e6e4;
 
-	--color-beige: #efe9e0;
+	--color-beige: #e2dcd3;
 
 	--color-black: #242426;
 	--color-black-muted: #5e5e5b;

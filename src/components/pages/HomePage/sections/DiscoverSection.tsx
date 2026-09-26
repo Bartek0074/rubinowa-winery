@@ -29,17 +29,17 @@ const DiscoverSection = ({ data, className }: Props) => {
 						)}
 					>
 						<ScrollScale className='relative h-full w-full'>
-
-						<Image
-							src={urlFor(section.image).url()}
-							alt={section.heading}
-							sizes='(max-width: 768px) 100vw, 50vw'
-							quality={90}
-							fill
-							className='object-cover object-center'
+							<Image
+								src={urlFor(section.image).url()}
+								alt={section.heading}
+								sizes='(max-width: 768px) 100vw, 50vw'
+								quality={90}
+								fill
+								className='object-cover object-center'
 							// add alt to sanity and use it here
 							/>
-							</ScrollScale>
+						</ScrollScale>
+						<div className='absolute inset-0 bg-primary-600/6 pointer-events-none' />
 					</div>
 					<div className='flex flex-col items-center justify-center py-8 px-4 bg-soft-white'>
 						<h2 className='text-h1 text-center uppercase'>{section.heading}</h2>
