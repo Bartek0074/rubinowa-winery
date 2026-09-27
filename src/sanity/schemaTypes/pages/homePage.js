@@ -189,6 +189,20 @@ export default defineType({
 				},
 			],
 		}),
+
+		defineField({
+			name: 'winesSection',
+			title: 'Sekcja Win',
+			type: 'array',
+			group: 'content',
+			validation: (Rule) => Rule.required().min(3).max(3).unique(),
+			of: [
+				{
+					type: 'reference',
+					to: [{ type: 'wine' }],
+				},
+			],
+		})
 	],
 
 	preview: {

@@ -22,6 +22,48 @@ export type SanityImageAssetReference = {
   [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
 };
 
+export type Wine = {
+  _id: string;
+  _type: "wine";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  name: string;
+  vintage: string;
+  volume: string;
+  image: {
+    asset?: SanityImageAssetReference;
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt: string;
+    _type: "image";
+  };
+};
+
+export type SanityImageCrop = {
+  _type: "sanity.imageCrop";
+  top: number;
+  bottom: number;
+  left: number;
+  right: number;
+};
+
+export type SanityImageHotspot = {
+  _type: "sanity.imageHotspot";
+  x: number;
+  y: number;
+  height: number;
+  width: number;
+};
+
+export type WineReference = {
+  _ref: string;
+  _type: "reference";
+  _weak?: boolean;
+  [internalGroqTypeReferenceTo]?: "wine";
+};
+
 export type HomePage = {
   _id: string;
   _type: "homePage";
@@ -65,22 +107,11 @@ export type HomePage = {
     };
     _key: string;
   }>;
-};
-
-export type SanityImageCrop = {
-  _type: "sanity.imageCrop";
-  top: number;
-  bottom: number;
-  left: number;
-  right: number;
-};
-
-export type SanityImageHotspot = {
-  _type: "sanity.imageHotspot";
-  x: number;
-  y: number;
-  height: number;
-  width: number;
+  winesSection: Array<
+    {
+      _key: string;
+    } & WineReference
+  >;
 };
 
 export type SanityImagePaletteSwatch = {
@@ -188,9 +219,11 @@ export type Slug = {
 
 export type AllSanitySchemaTypes =
   | SanityImageAssetReference
-  | HomePage
+  | Wine
   | SanityImageCrop
   | SanityImageHotspot
+  | WineReference
+  | HomePage
   | SanityImagePaletteSwatch
   | SanityImagePalette
   | SanityImageDimensions
@@ -203,7 +236,7 @@ export type AllSanitySchemaTypes =
 
 // Source: src/app/(site)/page.tsx
 // Variable: homePageQuery
-// Query: *[_type == "homePage"][0]{        heroSection {            heading {				lineOne,				lineTwo { 					fixed,					rotating				}			},			cta {				label,				url			}        },		introSection {			heading,			text		},		discoverSections[] {			heading,			text,			image,			cta {				label,				url			}		},    }
+// Query: *[_type == "homePage"][0]{        heroSection {            heading {				lineOne,				lineTwo { 					fixed,					rotating				}			},			cta {				label,				url			}        },		introSection {			heading,			text		},		discoverSections[] {			heading,			text,			image,			cta {				label,				url			}		},		winesSection[]-> {			name,			vintage,			volume,			image		}    }
 export type HomePageQueryResult = {
   heroSection: {
     heading: {
@@ -237,12 +270,25 @@ export type HomePageQueryResult = {
       url: string;
     };
   }>;
+  winesSection: Array<{
+    name: string;
+    vintage: string;
+    volume: string;
+    image: {
+      asset?: SanityImageAssetReference;
+      media?: unknown;
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      alt: string;
+      _type: "image";
+    };
+  }>;
 } | null;
 
 // Query TypeMap
 import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
-    '*[_type == "homePage"][0]{\n        heroSection {\n            heading {\n\t\t\t\tlineOne,\n\t\t\t\tlineTwo { \n\t\t\t\t\tfixed,\n\t\t\t\t\trotating\n\t\t\t\t}\n\t\t\t},\n\t\t\tcta {\n\t\t\t\tlabel,\n\t\t\t\turl\n\t\t\t}\n        },\n\t\tintroSection {\n\t\t\theading,\n\t\t\ttext\n\t\t},\n\t\tdiscoverSections[] {\n\t\t\theading,\n\t\t\ttext,\n\t\t\timage,\n\t\t\tcta {\n\t\t\t\tlabel,\n\t\t\t\turl\n\t\t\t}\n\t\t},\n    }': HomePageQueryResult;
+    '*[_type == "homePage"][0]{\n        heroSection {\n            heading {\n\t\t\t\tlineOne,\n\t\t\t\tlineTwo { \n\t\t\t\t\tfixed,\n\t\t\t\t\trotating\n\t\t\t\t}\n\t\t\t},\n\t\t\tcta {\n\t\t\t\tlabel,\n\t\t\t\turl\n\t\t\t}\n        },\n\t\tintroSection {\n\t\t\theading,\n\t\t\ttext\n\t\t},\n\t\tdiscoverSections[] {\n\t\t\theading,\n\t\t\ttext,\n\t\t\timage,\n\t\t\tcta {\n\t\t\t\tlabel,\n\t\t\t\turl\n\t\t\t}\n\t\t},\n\t\twinesSection[]-> {\n\t\t\tname,\n\t\t\tvintage,\n\t\t\tvolume,\n\t\t\timage\n\t\t}\n    }': HomePageQueryResult;
   }
 }

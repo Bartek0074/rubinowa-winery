@@ -16,4 +16,7 @@ export const structure: StructureResolver = (S) =>
 								.child(S.documentTypeList('homePage')),
 						]),
 				),
+			S.listItem()
+				.title('Wina')
+				.child(S.documentTypeList('wine')),
 		]);

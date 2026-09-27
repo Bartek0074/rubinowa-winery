@@ -49,6 +49,12 @@ export default async function Home() {
 				url
 			}
 		},
+		winesSection[]-> {
+			name,
+			vintage,
+			volume,
+			image
+		}
     }`);
 
 	const homePageData =
