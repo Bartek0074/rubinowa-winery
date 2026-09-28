@@ -21,7 +21,7 @@ const NavLinkDesktop = ({
 			href={href}
 			className={clsx(
 				'group relative block cursor-pointer uppercase px-px',
-				'font-sans text-[0.875rem] tracking-widest font-medium leading-5',
+				'font-sans text-[0.875rem] tracking-widest font-normal leading-5',
 				'transition-colors ease-editorial',
 				isBlank ? 'text-off-white' : 'text-black',
 				className,

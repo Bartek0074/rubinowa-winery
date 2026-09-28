@@ -61,7 +61,7 @@ const Controls = ({ id, className }: ControlsProps) => {
 					type='number'
 					value={quantity}
 					onChange={onChangeQuantity}
-					className='absolute w-full h-full text-center font-sans text-[0.9325rem] font-semibold tracking-widest leading-5 border-none outline-none'
+					className='absolute w-full h-full text-center font-sans text-[0.9325rem] font-medium tracking-widest leading-5 border-none outline-none'
 				/>
 			</div>
 			<button

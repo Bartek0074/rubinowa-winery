@@ -27,7 +27,7 @@ const WineCard = ({ name, vintage, price, volume, img, alt }: WineCardProps) => 
                 <h3 className='text-h3 text-center'>
                     {name} {vintage}
                 </h3>
-                <div className='mt-3 flex gap-3 justify-center'>
+                <div className='mt-2 flex gap-3 justify-center'>
                     <p className='text-small'>{price} zł</p>
                     <span className='text-small'>|</span>
                     <p className='text-small'>{volume}</p>

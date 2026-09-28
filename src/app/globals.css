@@ -8,8 +8,8 @@
 @theme inline {
 	--color-background: var(--background);
 	--color-foreground: var(--foreground);
-	--font-sans: var(--font-manrope);
-	--font-serif: var(--font-cormorant);
+	--font-sans: var(--font-ibm-plex-sans);
+	--font-serif: var(--font-stix);
 }
 
 @theme {
@@ -80,50 +80,54 @@
 	/* Typography */
 
 	/* Display */
-	--text-display-m: 3.125rem;
-	--text-display-m--line-height: 110%;
+	--text-display-m: 2.75rem;
+	--text-display-m--line-height: 106%;
 	--text-display-m--letter-spacing: -0.025em;
 
-	--text-display-t: 3.75rem;
+	--text-display-xs: 2.875rem;
+
+	--text-display-sm: 3.25rem;
+
+	--text-display-t: 3.5rem;
 
 	--text-display-d: 6rem;
-	--text-display-d--line-height: 105%;
+	--text-display-d--line-height: 102%;
 	--text-display-d--letter-spacing: -0.03em;
 
 	/* H1 */
-	--text-h1-m: 2.75rem;
-	--text-h1-m--line-height: 110%;
+	--text-h1-m: 2.5rem;
+	--text-h1-m--line-height: 104%;
 	--text-h1-m--letter-spacing: -0.02em;
 
 	--text-h1-d: 4.5rem;
-	--text-h1-d--line-height: 105%;
+	--text-h1-d--line-height: 102%;
 	--text-h1-d--letter-spacing: -0.025em;
 
 	/* H2 */
-	--text-h2-m: 2.25rem;
-	--text-h2-m--line-height: 115%;
+	--text-h2-m: 2.125rem;
+	--text-h2-m--line-height: 106%;
 	--text-h2-m--letter-spacing: -0.015em;
 
 	--text-h2-d: 3.5rem;
-	--text-h2-d--line-height: 110%;
+	--text-h2-d--line-height: 104%;
 	--text-h2-d--letter-spacing: -0.02em;
 
 	/* H3 */
-	--text-h3-m: 1.875rem;
-	--text-h3-m--line-height: 115%;
+	--text-h3-m: 1.75rem;
+	--text-h3-m--line-height: 108%;
 	--text-h3-m--letter-spacing: -0.01em;
 
 	--text-h3-d: 2.5rem;
-	--text-h3-d--line-height: 110%;
+	--text-h3-d--line-height: 106%;
 	--text-h3-d--letter-spacing: -0.015em;
 
 	/* H4 */
 	--text-h4-m: 1.5rem;
-	--text-h4-m--line-height: 120%;
+	--text-h4-m--line-height: 110%;
 	--text-h4-m--letter-spacing: 0;
 
 	--text-h4-d: 2rem;
-	--text-h4-d--line-height: 115%;
+	--text-h4-d--line-height: 108%;
 	--text-h4-d--letter-spacing: -0.01em;
 
 	/* Lead */
@@ -137,20 +141,20 @@
 
 	/* Body */
 	--text-body-m: 1rem;
-	--text-body-m--line-height: 160%;
+	--text-body-m--line-height: 150%;
 	--text-body-m--letter-spacing: 0;
 
 	--text-body-d: 1.0625rem;
-	--text-body-d--line-height: 160%;
+	--text-body-d--line-height: 150%;
 	--text-body-d--letter-spacing: 0;
 
 	/* Small */
 	--text-small-m: 0.875rem;
-	--text-small-m--line-height: 150%;
+	--text-small-m--line-height: 145%;
 	--text-small-m--letter-spacing: 0;
 
 	--text-small-d: 0.9375rem;
-	--text-small-d--line-height: 150%;
+	--text-small-d--line-height: 145%;
 	--text-small-d--letter-spacing: 0;
 
 	/* Caption */
@@ -214,42 +218,42 @@ html {
 }
 @media only screen and (min-width: 1440px) {
 	html {
-		font-size: 95%;
+		font-size: 100%;
 	}
 }
 @media only screen and (min-width: 1600px) {
 	html {
-		font-size: 95%;
+		font-size: 100%;
 	}
 }
 @media only screen and (min-width: 1920px) {
 	html {
-		font-size: 100%;
+		font-size: 105%;
 	}
 }
 @media only screen and (min-width: 2048px) {
 	html {
-		font-size: 110%;
+		font-size: 115%;
 	}
 }
 @media only screen and (min-width: 2200px) {
 	html {
-		font-size: 110%;
+		font-size: 115%;
 	}
 }
 @media only screen and (min-width: 2559px) {
 	html {
-		font-size: 120%;
+		font-size: 125%;
 	}
 }
 @media only screen and (min-width: 3000px) {
 	html {
-		font-size: 130%;
+		font-size: 135%;
 	}
 }
 @media only screen and (min-width: 3300px) {
 	html {
-		font-size: 140%;
+		font-size: 145%;
 	}
 }
 @media only screen and (min-width: 3840px) {
@@ -261,11 +265,19 @@ html {
 /* Typography utils */
 
 @utility text-display {
-	font-family: var(--font-cormorant);
+	font-family: var(--font-stix);
 	font-size: var(--text-display-m);
 	line-height: var(--text-display-m--line-height);
 	letter-spacing: var(--text-display-m--letter-spacing);
-	font-weight: 500;
+	font-weight: 400;
+
+	@media (min-width: 360px) {
+		font-size: var(--text-display-xs);
+	}
+
+	@media (min-width: 420px) {
+		font-size: var(--text-display-sm);
+	}
 
 	@media (min-width: 480px) {
 		font-size: var(--text-display-t);
@@ -279,11 +291,11 @@ html {
 }
 
 @utility text-h1 {
-	font-family: var(--font-cormorant);
+	font-family: var(--font-stix);
 	font-size: var(--text-h1-m);
 	line-height: var(--text-h1-m--line-height);
 	letter-spacing: var(--text-h1-m--letter-spacing);
-	font-weight: 500;
+	font-weight: 400;
 
 	@media (min-width: 1280px) {
 		font-size: var(--text-h1-d);
@@ -293,11 +305,11 @@ html {
 }
 
 @utility text-h2 {
-	font-family: var(--font-cormorant);
+	font-family: var(--font-stix);
 	font-size: var(--text-h2-m);
 	line-height: var(--text-h2-m--line-height);
 	letter-spacing: var(--text-h2-m--letter-spacing);
-	font-weight: 500;
+	font-weight: 400;
 
 	@media (min-width: 1280px) {
 		font-size: var(--text-h2-d);
@@ -307,7 +319,7 @@ html {
 }
 
 @utility text-h3 {
-	font-family: var(--font-cormorant);
+	font-family: var(--font-stix);
 	font-size: var(--text-h3-m);
 	line-height: var(--text-h3-m--line-height);
 	letter-spacing: var(--text-h3-m--letter-spacing);
@@ -321,11 +333,11 @@ html {
 }
 
 @utility text-h4 {
-	font-family: var(--font-cormorant);
+	font-family: var(--font-stix);
 	font-size: var(--text-h4-m);
 	line-height: var(--text-h4-m--line-height);
 	letter-spacing: var(--text-h4-m--letter-spacing);
-	font-weight: 500;
+	font-weight: 400;
 
 	@media (min-width: 1280px) {
 		font-size: var(--text-h4-d);
@@ -335,11 +347,11 @@ html {
 }
 
 @utility text-lead {
-	font-family: var(--font-manrope);
+	font-family: var(--font-ibm-plex-sans);
 	font-size: var(--text-lead-m);
 	line-height: var(--text-lead-m--line-height);
 	letter-spacing: var(--text-lead-m--letter-spacing);
-	font-weight: 450;
+	font-weight: 400;
 
 	@media (min-width: 1280px) {
 		font-size: var(--text-lead-d);
@@ -349,11 +361,11 @@ html {
 }
 
 @utility text-body {
-	font-family: var(--font-manrope);
+	font-family: var(--font-ibm-plex-sans);
 	font-size: var(--text-body-m);
 	line-height: var(--text-body-m--line-height);
 	letter-spacing: var(--text-body-m--letter-spacing);
-	font-weight: 450;
+	font-weight: 400;
 
 	@media (min-width: 1280px) {
 		font-size: var(--text-body-d);
@@ -363,11 +375,11 @@ html {
 }
 
 @utility text-small {
-	font-family: var(--font-manrope);
+	font-family: var(--font-ibm-plex-sans);
 	font-size: var(--text-small-m);
 	line-height: var(--text-small-m--line-height);
 	letter-spacing: var(--text-small-m--letter-spacing);
-	font-weight: 450;
+	font-weight: 400;
 
 	@media (min-width: 1280px) {
 		font-size: var(--text-small-d);
@@ -377,7 +389,7 @@ html {
 }
 
 @utility text-caption {
-	font-family: var(--font-manrope);
+	font-family: var(--font-ibm-plex-sans);
 	font-size: var(--text-caption-m);
 	line-height: var(--text-caption-m--line-height);
 	letter-spacing: var(--text-caption-m--letter-spacing);

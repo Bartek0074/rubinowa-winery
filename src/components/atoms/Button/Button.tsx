@@ -29,7 +29,7 @@ const getButtonClassName = (variant: ButtonVariant, className?: string) =>
 	clsx(
 		'group relative block',
 		'px-6 py-3 w-fit',
-		'font-sans text-[0.875rem] font-semibold tracking-widest leading-5 text-center uppercase',
+		'font-sans text-[0.875rem] font-medium tracking-widest leading-5 text-center uppercase',
 		'border cursor-pointer disabled:opacity-80 disabled:cursor-not-allowed whitespace-nowrap',
 		'transition-[color,background-color,border-color] ease-editorial',
 		variants[variant],
