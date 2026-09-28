@@ -24,16 +24,16 @@ const WineCard = ({ name, vintage, price, volume, img, alt }: WineCardProps) => 
                 <Image src={urlFor(img).url()} alt={alt} fill className='absolute inset-0 object-contain group-hover:-translate-y-3 transition-transform ease-editorial' />
             </Link>
             <div className='mt-4'>
-                <h3 className='text-h3 text-center'>
+                <h3 className='text-h4 text-center'>
                     {name} {vintage}
                 </h3>
-                <div className='mt-2 flex gap-3 justify-center'>
+                <div className='mt-1 flex gap-3 justify-center'>
                     <p className='text-small'>{price} zł</p>
                     <span className='text-small'>|</span>
                     <p className='text-small'>{volume}</p>
                 </div>
             </div>
-            <Controls id='id-to-do' className='mt-8' />
+            <Controls id='id-to-do' className='mt-6' />
         </div>
     );
 };

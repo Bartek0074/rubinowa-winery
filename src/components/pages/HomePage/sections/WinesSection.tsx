@@ -11,8 +11,8 @@ type Props = {
 
 const WinesSection = ({ data, className }: Props) => {
 	return (
-		<section className={clsx('flex flex-col flex-1 w-full mx-auto px-4 md:px-7 max-w-420', className)}>
-			<div className='grid grid-cols-1 gap-7 md:grid-cols-3'>
+		<section className={clsx('flex flex-col flex-1 w-full mx-auto px-4 md:px-7 lg:px-21 2xl:px-24.5 3xl:px-28', className)}>
+			<div className='grid grid-cols-1 gap-7 lg:gap-10.5 md:grid-cols-3'>
 				{data.map((wine, index) => (
 					<WineCard
 						key={`${wine.name}-${wine.vintage}-${index}`}
