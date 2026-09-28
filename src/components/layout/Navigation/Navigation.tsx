@@ -99,7 +99,7 @@ const Navigation = () => {
 	}, [isNavMenuOpen]);
 
 	const navigationClassName = clsx(
-		'fixed z-100 top-0 flex items-center justify-between w-full gap-2 p-4 lg:p-7 transition-[transform, background-color] ease-editorial',
+		'px-sm fixed z-100 top-0 flex items-center justify-between w-full gap-2 py-4 lg:py-6 transition-[transform, background-color] ease-editorial',
 		isHidden && !isNavMenuOpen ? 'translate-y-[-100%]' : 'translate-y-0',
 		isBlank ? 'bg-transparent' : 'bg-off-white',
 	);
@@ -111,7 +111,7 @@ const Navigation = () => {
 
 	return (
 		<nav className={navigationClassName} key={isMounted ? 0 : 1}>
-			<div className='flex flex-row items-center justify-center gap-7.25'>
+			<div className='flex flex-row items-center justify-center gap-8'>
 				<Link
 					href={ROUTES.HOME}
 					onClick={isNavMenuOpen ? closeNavMenu : undefined}
