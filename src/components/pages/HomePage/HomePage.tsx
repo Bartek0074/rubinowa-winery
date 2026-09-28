@@ -13,9 +13,9 @@ const HomePage = ({ data }: Props) => {
 	return (
 		<div className='flex flex-col'>
 			<HeroSection data={data.heroSection} />
-			<IntroSection data={data.introSection} className='mt-12 md:mt-15 lg:mt-21 xl:mt-42' />
-			<DiscoverSection data={data.discoverSections} className='mt-8 md:mt-10 lg:mt-14 xl:mt-35' />
-			<WinesSection data={data.winesSection} className='mt-8 md:mt-10 lg:mt-14 xl:mt-35' />
+			<IntroSection data={data.introSection} className='mt-section-lg' />
+			<DiscoverSection data={data.discoverSections} className='mt-section-base' />
+			<WinesSection data={data.winesSection} className='mt-section-xl' />
 			<div className='h-64'></div>
 		</div>
 	);
