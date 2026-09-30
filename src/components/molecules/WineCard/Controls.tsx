@@ -41,7 +41,7 @@ const Controls = ({ id, className }: ControlsProps) => {
 	};
 
 	const buttonClass =
-		'group flex items-center justify-center h-full aspect-square border border-r-0 bg-transparent hover:bg-black transition-colors ease-editorial cursor-pointer';
+		'group flex items-center justify-center h-12 aspect-square border border-r-0 bg-transparent hover:bg-black transition-colors ease-editorial cursor-pointer';
 
 	const iconClass =
 		'h-6 text-black group-hover:text-off-white transition-colors ease-editorial';
@@ -56,7 +56,7 @@ const Controls = ({ id, className }: ControlsProps) => {
 			>
 				<IconMinus className={iconClass} strokeWidth={1.5} />
 			</button>
-			<div className='relative h-full aspect-square border border-r-0'>
+			<div className='relative h-12 aspect-square border border-r-0'>
 				<input
 					type='number'
 					value={quantity}

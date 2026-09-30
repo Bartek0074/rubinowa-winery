@@ -19,9 +19,9 @@ type WineCardProps = {
 
 const WineCard = ({ name, vintage, price, volume, img, alt }: WineCardProps) => {
     return (
-        <div className='flex flex-col'>
+        <div className='flex flex-col mb-px'>
             <Link href="#" className='relative w-full aspect-3/4 cursor-pointer group'>
-                <Image src={urlFor(img).url()} alt={alt} fill className='absolute inset-0 object-contain group-hover:-translate-y-3 transition-transform ease-editorial' />
+                <Image src={urlFor(img).url()} alt={alt} fill className='absolute inset-0 object-contain group-hover:-translate-y-2 transition-transform ease-editorial' />
             </Link>
             <div className='mt-4'>
                 <h3 className='text-h4 text-center'>
