@@ -41,7 +41,7 @@ const DiscoverSection = ({ data, className }: Props) => {
 						</ScrollScale>
 						<div className='absolute inset-0 bg-primary-600/6 pointer-events-none' />
 					</div>
-					<div className='flex flex-col items-center justify-center py-8 px-4 bg-soft-white'>
+					<div className='flex flex-col items-center justify-center py-16 px-4 bg-soft-white'>
 						<h2 className='text-h1 text-center uppercase'>{section.heading}</h2>
 						<p className='mt-2 text-lead text-center italic'>{section.text}</p>
 						<Button.Link variant='outline' className='mt-7' href={section.cta.url}>

@@ -12,14 +12,17 @@ const variants = {
 	dark:
 		'border-black bg-black text-off-white ' +
 		'hover:border-primary-600 hover:bg-primary-600 ' +
+		'active:border-primary-600 active:bg-primary-600 ' +
 		'disabled:border-black disabled:bg-black disabled:text-off-white',
 	light:
 		'border-off-white bg-off-white text-black ' +
 		'hover:text-off-white hover:border-primary-600 hover:bg-primary-600 ' +
+		'active:text-off-white active:border-primary-600 active:bg-primary-600 ' +
 		'disabled:border-off-white disabled:bg-off-white disabled:text-black',
 	outline:
 		'border-black bg-transparent text-black ' +
 		'hover:bg-black hover:text-off-white ' +
+		'active:bg-black active:text-off-white ' +
 		'disabled:border-black disabled:bg-transparent disabled:text-black',
 };
 

@@ -41,10 +41,10 @@ const Controls = ({ id, className }: ControlsProps) => {
 	};
 
 	const buttonClass =
-		'group flex items-center justify-center h-12 aspect-square border border-r-0 bg-transparent hover:bg-black transition-colors ease-editorial cursor-pointer';
+		'group flex items-center justify-center h-12 aspect-square border border-r-0 bg-transparent hover:bg-black active:bg-black transition-colors ease-editorial cursor-pointer';
 
 	const iconClass =
-		'h-6 text-black group-hover:text-off-white transition-colors ease-editorial';
+		'h-6 text-black group-hover:text-off-white group-active:text-off-white transition-colors ease-editorial';
 
 	return (
 		<div className={`flex flex-row justify-center ${className ?? ''}`}>
