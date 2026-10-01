@@ -31,7 +31,7 @@ const HeroSection = ({ data, className }: Props) => {
 			/>
 			<div
 				aria-hidden='true'
-				className='pointer-events-none absolute inset-0 top-0 z-2 bg-linear-to-br from-black/25 via-black/10 to-transparent'
+				className='pointer-events-none absolute inset-0 top-0 z-2 bg-linear-to-br from-primary-600/6 via-primary-600/3 to-transparent'
 			/>
 			<div className='absolute px-base left-0 right-0 bottom-12 md:bottom-1/2 md:translate-y-1/2 z-3'>
 				<h1 className='text-display text-off-white'>
