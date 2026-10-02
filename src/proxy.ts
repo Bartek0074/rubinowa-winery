@@ -2,22 +2,28 @@ import { NextResponse, type NextRequest } from 'next/server';
 import { updateSession } from './libs/supabase/proxy';
 import { createClient } from './libs/supabase/server';
 
+import { ROUTES } from './libs/routes';
+
+
 export async function proxy(request: NextRequest) {
-	// const supabase = await createClient();
+	const pathname = request.nextUrl.pathname;
 
-	// console.log('test')
+	const supabase = await createClient();
+	
+	const {
+		data: { user },
+	} = await supabase.auth.getUser();
 
-	// const {
-	// 	data: { user },
-	// } = await supabase.auth.getUser();
+	const isAdminRoute = pathname === ROUTES.ADMIN || pathname.startsWith(ROUTES.ADMIN);
+	const isLoginRoute = pathname === ROUTES.ADMIN_LOGIN;
 
-	// if (!user && request.nextUrl.pathname.startsWith('/dashboard')) {
-	// 	return Response.redirect(new URL('/login', request.url));
-	// }
+	if (!user && isAdminRoute && !isLoginRoute) {
+		return Response.redirect(new URL(ROUTES.ADMIN_LOGIN, request.url));
+	}
 
-	// if (user && request.nextUrl.pathname.startsWith('/login')) {
-	// 	return Response.redirect(new URL('/dashboard', request.url));
-	// }
+	if (user && isLoginRoute) {
+		return Response.redirect(new URL(ROUTES.ADMIN, request.url));
+	}
 
 	return await updateSession(request);
 }

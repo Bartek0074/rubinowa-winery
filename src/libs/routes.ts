@@ -5,4 +5,7 @@ export const ROUTES = {
     WINES: "/wina",
     BLOG: "/blog",
     CONTACT: "/kontakt",
+    ADMIN: "/admin",
+    ADMIN_LOGIN: "/admin/login",
+    ADMIN_WINES: "/admin/wina"
 };
