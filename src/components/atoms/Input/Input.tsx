@@ -9,9 +9,9 @@ type InputProps = {
 const Input = ({ className, ...props }: InputProps) => {
 	const inputClassName = clsx(
 		'h-12 w-full',
-		'px-6',
+		'px-4',
 		'border border-black bg-transparent',
-		'font-sans text-[1rem] text-black',
+		'font-sans text-body text-black',
 		'placeholder:text-black-muted',
 		'outline-none',
 		'transition-[border-color,background-color] ease-editorial',

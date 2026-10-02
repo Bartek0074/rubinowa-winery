@@ -1,3 +1,4 @@
+import AdminLoginPage from './AdminLoginPage';
 import HomePage from './HomePage';
 
-export { HomePage };
+export { AdminLoginPage, HomePage };

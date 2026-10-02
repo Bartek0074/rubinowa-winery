@@ -1,3 +1,5 @@
+import AdminLoginPage from '@/src/components/pages/AdminLoginPage';
+
 export default function LoginPage() {
-	return <div>Login Page</div>;
+    return <AdminLoginPage />;
 }
