@@ -1,4 +1,4 @@
-import { NextResponse, type NextRequest } from 'next/server';
+import { type NextRequest } from 'next/server';
 import { updateSession } from './libs/supabase/proxy';
 import { createClient } from './libs/supabase/server';
 
