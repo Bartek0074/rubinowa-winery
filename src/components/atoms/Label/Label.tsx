@@ -12,7 +12,7 @@ export default function Label({ ...props }: LabelProps) {
 		<label
 			{...props}
 			className={clsx(
-				'block text-caption text-black font-medium cursor-pointer w-fit',
+				'block text-small text-black font-medium cursor-pointer w-fit',
 				props.className,
 			)}
 		>
