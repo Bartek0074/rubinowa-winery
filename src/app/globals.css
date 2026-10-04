@@ -393,7 +393,7 @@ html {
 	font-size: var(--text-caption-m);
 	line-height: var(--text-caption-m--line-height);
 	letter-spacing: var(--text-caption-m--letter-spacing);
-	font-weight: 600;
+	font-weight: 500;
 	text-transform: uppercase;
 
 	@media (min-width: 1280px) {

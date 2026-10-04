@@ -18,7 +18,11 @@ const LINKS = [
 	},
 ];
 
-export default function NavigationAdminPanel() {
+type NavigationAdminPanelProps = {
+	email: string;
+};
+
+export default function NavigationAdminPanel({ email }: NavigationAdminPanelProps) {
 	const pathname = usePathname();
 
 	const [isOpen, setIsOpen] = useState(false)
@@ -54,7 +58,9 @@ export default function NavigationAdminPanel() {
 				</ul>
 			</div>
 			<div className='flex flex-row items-center gap-6'>
-				<LogoutButton className='hidden lg:flex' />
+				<span className='hidden max-w-60 truncate font-sans text-caption text-black-muted lg:flex'>
+					{email}
+				</span>				<LogoutButton className='hidden lg:flex' />
 				<MenuButton
 					className='lg:hidden'
 					isOpen={isOpen}
@@ -79,6 +85,9 @@ export default function NavigationAdminPanel() {
 						})}
 						<li className='pt-6 w-full'>
 							<LogoutButton />
+						</li>
+						<li className='-mt-2 w-full text-right'>
+							<span className='lg:hidden text-caption text-black-muted'>{email}</span>
 						</li>
 					</ul>
 				</div>
