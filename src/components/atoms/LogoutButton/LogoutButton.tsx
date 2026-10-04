@@ -2,9 +2,7 @@
 
 import { logout } from '@/src/actions/logout';
 
-import { IconLogout } from '@tabler/icons-react';
-
-import SubmitButtonIcon from '../SubmitButtonIcon';
+import SubmitButton from '../SubmitButton';
 
 type LogoutButtonProps = {
     className?: string;
@@ -12,7 +10,9 @@ type LogoutButtonProps = {
 
 export default function LogoutButton({ className }: LogoutButtonProps) {
     return (
-        <form action={logout}>
-            <SubmitButtonIcon icon={IconLogout} className={className} variant='outline' aria-label='Wyloguj się' />
+        <form action={logout} className={className}>
+            <SubmitButton variant='outline' className={'w-full xs:w-fit'}>
+                Wyloguj się
+            </SubmitButton>
         </form>);
 }

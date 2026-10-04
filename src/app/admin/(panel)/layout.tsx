@@ -1,4 +1,4 @@
-import LogoutButton from '@/src/components/atoms/LogoutButton/LogoutButton';
+import NavigationAdminPanel from '@/src/components/layout/NavigationAdminPanel';
 
 export default function AdminPanelLayout({
 	children,
@@ -6,10 +6,9 @@ export default function AdminPanelLayout({
 	children: React.ReactNode;
 }) {
 	return (
-		<div>
-			<p>Admin Layout</p>
-			<LogoutButton className='mb-4' />
-			{children}
+		<div className='flex flex-col'>
+			<NavigationAdminPanel />
+			<main className='flex-1'>{children}</main>
 		</div>
 	);
 }
