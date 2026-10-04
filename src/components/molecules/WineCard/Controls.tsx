@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 
-import Button from '@/src/components/atoms/Button';
+import { Button, ButtonIcon } from '@/src/components/atoms';
 
 import { IconPlus, IconMinus } from '@tabler/icons-react';
 
@@ -41,21 +41,18 @@ const Controls = ({ id, className }: ControlsProps) => {
 	};
 
 	const buttonClass =
-		'group flex items-center justify-center h-12 aspect-square border border-r-0 bg-transparent hover:bg-black active:bg-black transition-colors ease-editorial cursor-pointer';
-
-	const iconClass =
-		'h-6 text-black group-hover:text-off-white group-active:text-off-white transition-colors ease-editorial';
+		'border-r-0';
 
 	return (
 		<div className={`flex flex-row justify-center ${className ?? ''}`}>
-			<button
+			<ButtonIcon
+				variant='outline'
+				icon={IconMinus}
 				className={buttonClass}
 				onClick={onDecrease}
 				disabled={quantity <= 1}
 				aria-label='Zmniejsz'
-			>
-				<IconMinus className={iconClass} strokeWidth={1.5} />
-			</button>
+			/>
 			<div className='relative h-12 aspect-square border border-r-0'>
 				<input
 					type='number'
@@ -64,14 +61,14 @@ const Controls = ({ id, className }: ControlsProps) => {
 					className='absolute w-full h-full text-center font-sans text-[0.9325rem] font-medium tracking-widest leading-5 border-none outline-none'
 				/>
 			</div>
-			<button
+			<ButtonIcon
+				variant='outline'
+				icon={IconPlus}
 				className={buttonClass}
 				onClick={onIncrease}
 				disabled={quantity >= MAX_QUANTITY}
 				aria-label='Zwiększ'
-			>
-				<IconPlus className={iconClass} strokeWidth={1.5} />
-			</button>
+			/>
 			<Button variant='outline' className='w-full' onClick={onAddToCart}>
 				Dodaj do koszyka
 			</Button>
