@@ -6,6 +6,27 @@ export default defineType({
 	type: 'document',
 	fields: [
 		defineField({
+			name: 'supabaseId',
+			title: 'ID',
+			type: 'string',
+			validation: (Rule) => Rule.required(),
+			description: 'ID z panelu admina. Wartość musi być unikalna, nie może się powtarzać w innych winach!',
+		}),
+
+		defineField({
+			name: 'slug',
+			title: 'Slug',
+			type: 'slug',
+			options: {
+				source: (doc) => `${doc.name}-${doc.vintage}`,
+				maxLength: 96,
+			},
+			validation: (Rule) => Rule.required(),
+			description:
+				'Slug używany w URL. Najlepiej zgodny z nazwą wina np. "rubin-2021". Nie powinien zawierać polskich znaków. Nie używaj spacji ani znaków specjalnych. Wartość musi być unikalna, nie może się powtarzać w innych winach.',
+		}),
+
+		defineField({
 			name: 'name',
 			title: 'Nazwa',
 			type: 'string',

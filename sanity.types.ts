@@ -28,6 +28,8 @@ export type Wine = {
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
+  supabaseId: string;
+  slug: Slug;
   name: string;
   vintage: string;
   volume: string;
@@ -55,6 +57,12 @@ export type SanityImageHotspot = {
   y: number;
   height: number;
   width: number;
+};
+
+export type Slug = {
+  _type: "slug";
+  current: string;
+  source?: string;
 };
 
 export type WineReference = {
@@ -211,17 +219,12 @@ export type Geopoint = {
   alt?: number;
 };
 
-export type Slug = {
-  _type: "slug";
-  current: string;
-  source?: string;
-};
-
 export type AllSanitySchemaTypes =
   | SanityImageAssetReference
   | Wine
   | SanityImageCrop
   | SanityImageHotspot
+  | Slug
   | WineReference
   | HomePage
   | SanityImagePaletteSwatch
@@ -231,8 +234,7 @@ export type AllSanitySchemaTypes =
   | SanityFileAsset
   | SanityAssetSourceData
   | SanityImageAsset
-  | Geopoint
-  | Slug;
+  | Geopoint;
 
 // Source: src/app/(site)/page.tsx
 // Variable: homePageQuery
