@@ -37,6 +37,20 @@ export const hardcodedContent = {
 			loginPage: {
 				email: 'Email',
 				login: "Zaloguj się"
+			},
+			winesPage: {
+				title: 'Wina',
+				addWine: 'Dodaj wino',
+				fetchError: 'Nie udało się pobrać danych.',
+				table: {
+					name: 'Nazwa',
+					year: 'Rocznik',
+					price: 'Cena',
+					isMatched: 'Powiązanie z Studio',
+					matched: 'Powiązane',
+					notMatched: 'Niepowiązane',
+					id: 'ID',
+				}
 			}	
 		}
 	}
