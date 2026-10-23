@@ -1,6 +1,7 @@
 import clsx from 'clsx';
-
 import type { ReactNode } from 'react';
+
+import { hardcodedContent } from '@/src/libs/global-content';
 
 export type DataTableColumn<T> = {
 	key: string;
@@ -22,9 +23,9 @@ const DataTable = <T,>({
 	columns,
 	data,
 	getRowKey,
-	emptyMessage = 'Brak danych do wyświetlenia.',
+	emptyMessage = hardcodedContent.organisms.dataTable.emptyMessage,
 	isError = false,
-	errorMessage = 'Nie udało się załadować danych.',
+	errorMessage = hardcodedContent.organisms.dataTable.errorMessage,
 }: DataTableProps<T>) => {
 	return (
 		<div className='w-full overflow-x-auto border border-black-muted/60 bg-off-white'>

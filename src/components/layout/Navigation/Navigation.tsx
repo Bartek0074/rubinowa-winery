@@ -16,12 +16,14 @@ import { ROUTES } from '@/src/libs/routes';
 
 import { useUiStore } from '@/src/stores/uiStore';
 
+import { hardcodedContent } from '@/src/libs/global-content';
+
 const LINKS = [
-	{ href: ROUTES.ABOUT, label: 'O nas' },
-	{ href: ROUTES.VINEYARD, label: 'Winnica' },
-	{ href: ROUTES.WINES, label: 'Wina' },
-	{ href: ROUTES.BLOG, label: 'Blog' },
-	{ href: ROUTES.CONTACT, label: 'Kontakt' },
+	{ href: ROUTES.ABOUT, label: hardcodedContent.routes.about },
+	{ href: ROUTES.VINEYARD, label: hardcodedContent.routes.vineyard },
+	{ href: ROUTES.WINES, label: hardcodedContent.routes.wines },
+	{ href: ROUTES.BLOG, label: hardcodedContent.routes.blog },
+	{ href: ROUTES.CONTACT, label: hardcodedContent.routes.contact },
 ];
 
 const LINK_SUPPORTED_BLANK_MODE = [ROUTES.HOME];

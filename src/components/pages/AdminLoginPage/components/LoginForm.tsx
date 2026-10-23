@@ -8,6 +8,8 @@ import { Input, SubmitButton, Label } from '@/src/components/atoms';
 
 import { type LoginState, login } from '@/src/actions/login';
 
+import { hardcodedContent } from '@/src/libs/global-content';
+
 const initialState: LoginState = {
 	message: '',
 	error: false,
@@ -19,7 +21,7 @@ export default function LoginForm() {
 	return (
 		<form action={formAction} className='flex flex-col gap-4 w-full sm:w-1/2 max-w-120 p-4'>
 			<div className='flex flex-col space-y-1'>
-				<Label htmlFor='email' required>Email</Label>
+				<Label htmlFor='email' required>{hardcodedContent.pages.admin.loginPage.email}</Label>
 				<Input
 					id='email'
 					type='email'
@@ -30,7 +32,7 @@ export default function LoginForm() {
 				/>
 			</div>
 			<SubmitButton type='submit' variant='dark' className='w-full'>
-				Zaloguj się
+				{hardcodedContent.pages.admin.loginPage.login}
 			</SubmitButton>
 			{state.message && (
 				<p
