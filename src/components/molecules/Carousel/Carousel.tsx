@@ -1,7 +1,6 @@
 'use client';
 
 import { useCallback, useEffect, useState } from 'react';
-
 import useEmblaCarousel from 'embla-carousel-react';
 
 type CarouselProps = {
@@ -31,19 +30,19 @@ const Carousel = ({
 	useEffect(() => {
 		if (!emblaApi) return;
 
-		onSelect();
-
 		emblaApi.on('select', onSelect);
+		emblaApi.on('reInit', onSelect);
 
 		return () => {
 			emblaApi.off('select', onSelect);
+			emblaApi.off('reInit', onSelect);
 		};
 	}, [emblaApi, onSelect]);
 
 	return (
 		<div className={className}>
-			<div ref={emblaRef} className='overflow-hidden'>
-				<div className='flex gap-8 lg:gap-12'>
+			<div ref={emblaRef} className="overflow-hidden">
+				<div className="flex gap-8 lg:gap-12">
 					{items.map((item, index) => (
 						<div key={index} className={childClassName}>
 							{item}
@@ -52,20 +51,22 @@ const Carousel = ({
 				</div>
 			</div>
 
-			<div className='mt-8 flex justify-center gap-1'>
+			<div className="mt-8 flex justify-center gap-1">
 				{items.map((_, index) => (
 					<button
 						key={index}
-						type='button'
+						type="button"
 						aria-label={`Przejdź do slajdu ${index + 1}`}
 						aria-current={selectedIndex === index}
 						onClick={() => emblaApi?.scrollTo(index)}
-						className='group flex p-1 items-center justify-center cursor-pointer'
+						className="group flex p-1 items-center justify-center cursor-pointer"
 					>
 						<span
 							className={[
 								'block size-2 rounded-full transition-all ease-editorial',
-								selectedIndex === index ? 'bg-black' : 'bg-black/20',
+								selectedIndex === index
+									? 'bg-black'
+									: 'bg-black/20',
 							].join(' ')}
 						/>
 					</button>

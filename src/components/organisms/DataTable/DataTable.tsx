@@ -68,7 +68,7 @@ const DataTable = <T,>({
 							</td>
 						</tr>
 					) : (
-						data.map((row, index) => (
+						data.map((row) => (
 							<tr
 								key={getRowKey(row)}
 								className='border-b border-black-muted/30 transition-colors ease-editorial last:border-b-0 hover:bg-beige/30'

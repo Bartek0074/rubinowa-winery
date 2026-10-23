@@ -7,8 +7,6 @@ import { IconPlus, IconMinus, IconShoppingBag } from '@tabler/icons-react';
 import { MenuButton } from '@/src/components/layout/components';
 import { Button, ButtonIcon } from '@/src/components/atoms';
 
-type StyleGuidePageProps = {};
-
 const ColorBox = ({ colorClassName }: { colorClassName: string }) => {
     const getContrastColor = () => {
         const isPrimaryOrSecondary = colorClassName.startsWith('bg-primary-') || colorClassName.startsWith('bg-secondary-');
@@ -42,7 +40,7 @@ const ColorBox = ({ colorClassName }: { colorClassName: string }) => {
     );
 };
 
-const StyleGuidePage = ({ }: StyleGuidePageProps) => {
+const StyleGuidePage = () => {
     const [isBurgerOpen, setIsBurgerOpen] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
 
