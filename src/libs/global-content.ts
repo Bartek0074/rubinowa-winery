@@ -46,10 +46,13 @@ export const hardcodedContent = {
 					name: 'Nazwa',
 					year: 'Rocznik',
 					price: 'Cena',
-					isMatched: 'Powiązanie z Studio',
-					matched: 'Powiązane',
-					notMatched: 'Niepowiązane',
-					id: 'ID',
+					isMatched: 'Dane w Studio',
+					isMatchedStatus: {
+						yes: 'Tak',
+						no: 'Nie',
+					},
+					actions: 'Akcje',
+					view: 'Podgląd',
 				}
 			}	
 		}

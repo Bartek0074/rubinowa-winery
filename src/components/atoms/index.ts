@@ -5,6 +5,7 @@ import SubmitButtonIcon from './SubmitButtonIcon';
 import LogoutButton from './LogoutButton';
 import Input from './Input';
 import Label from './Label';
+import Link from './Link';
 
 export {
 	Button,
@@ -14,4 +15,5 @@ export {
 	LogoutButton,
 	Input,
 	Label,
+	Link,
 };
