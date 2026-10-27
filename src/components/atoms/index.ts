@@ -7,6 +7,7 @@ import Input from './Input';
 import Label from './Label';
 import Link from './Link';
 import Alert from './Alert';
+import DetailItem from './DetailItem';
 
 export {
 	Button,
@@ -18,4 +19,5 @@ export {
 	Label,
 	Link,
 	Alert,
+	DetailItem,
 };
