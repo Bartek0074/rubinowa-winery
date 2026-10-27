@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 
-import { IconPlus, IconMinus, IconShoppingBag } from '@tabler/icons-react';
+import { IconPlus, IconMinus, IconShoppingBag, IconTrash } from '@tabler/icons-react';
 
 import { MenuButton } from '@/src/components/layout/components';
 import { Button, ButtonIcon } from '@/src/components/atoms';
@@ -132,21 +132,25 @@ const StyleGuidePage = () => {
                         <Button variant='dark' loading={isLoading} onClick={() => { setIsLoading(!isLoading) }}>PRZYCISK</Button>
                         <Button.Link variant='light' href="/">PRZYCISK</Button.Link>
                         <Button.Anchor variant='outline' href="https://example.com">PRZYCISK</Button.Anchor>
+                        <Button variant='danger' loading={isLoading} onClick={() => { setIsLoading(!isLoading) }}>PRZYCISK</Button>
                     </div>
                     <div className="flex flex-row gap-2">
                         <ButtonIcon variant='dark' icon={IconPlus} loading={isLoading} onClick={() => { setIsLoading(!isLoading) }} />
                         <ButtonIcon.Link variant='dark' icon={IconMinus} href="/" />
                         <ButtonIcon.Anchor variant='dark' icon={IconShoppingBag} href="https://example.com" />
+                        <ButtonIcon variant='danger' icon={IconTrash} loading={isLoading} onClick={() => { setIsLoading(!isLoading) }} />
                     </div>
                     <div className="flex flex-row gap-2">
                         <ButtonIcon variant='light' icon={IconPlus} loading={isLoading} onClick={() => { setIsLoading(!isLoading) }} />
                         <ButtonIcon.Link variant='light' icon={IconMinus} href="/" />
                         <ButtonIcon.Anchor variant='light' icon={IconShoppingBag} href="https://example.com" />
+                        <ButtonIcon variant='danger' icon={IconTrash} loading={isLoading} onClick={() => { setIsLoading(!isLoading) }} />
                     </div>
                     <div className="flex flex-row gap-2">
                         <ButtonIcon variant='outline' icon={IconPlus} onClick={() => { setIsLoading(!isLoading) }} />
                         <ButtonIcon.Link variant='outline' icon={IconMinus} href="/" />
                         <ButtonIcon.Anchor variant='outline' icon={IconShoppingBag} href="https://example.com" />
+                        <ButtonIcon variant='danger' icon={IconTrash} onClick={() => { setIsLoading(!isLoading) }} />
                     </div>
                 </div>
             </section>

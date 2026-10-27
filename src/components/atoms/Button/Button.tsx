@@ -24,6 +24,11 @@ const variants = {
 		'hover:bg-black hover:text-off-white ' +
 		'active:bg-black active:text-off-white ' +
 		'disabled:border-black disabled:bg-transparent disabled:text-black',
+	danger:
+		'border-error bg-transparent text-error ' +
+		'hover:bg-error hover:text-off-white ' +
+		'active:bg-error active:text-off-white ' +
+		'disabled:border-error disabled:bg-transparent disabled:text-error'
 };
 
 type ButtonVariant = keyof typeof variants;
