@@ -12,4 +12,7 @@ export const ROUTES = {
     ADMIN_WINE_DETAILS: (id: string) => `/admin/wina/${id}`,
     ADMIN_WINE_CREATE: "/admin/wina/nowe",
     ADMIN_WINE_EDIT: (id: string) => `/admin/wina/${id}/edycja`,
+
+    STUDIO_WINES: "/studio/structure/wina",
+    STUDIO_WINE: (id: string) => `/studio/structure/wina;${id}`,
 };

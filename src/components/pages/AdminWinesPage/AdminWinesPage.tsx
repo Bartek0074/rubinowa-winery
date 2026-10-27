@@ -13,7 +13,7 @@ type Props = {
 	isError: boolean;
 };
 
-const AdminWinesPage = ({ wines, isError }: Props) => {
+const AdminWinePage = ({ wines, isError }: Props) => {
 	return (
 		<div className='px-base mt-section-sm'>
 			<div className='flex justify-between items-center mb-4'>
@@ -33,7 +33,7 @@ const AdminWinesPage = ({ wines, isError }: Props) => {
 					},
 					{
 						key: 'year',
-						header: hardcodedContent.pages.admin.winesPage.table.year,
+						header: hardcodedContent.pages.admin.winesPage.table.vintage,
 						render: (row) => row.supabase.year,
 					},
 					{
@@ -84,4 +84,4 @@ const AdminWinesPage = ({ wines, isError }: Props) => {
 	);
 };
 
-export default AdminWinesPage;
+export default AdminWinePage;

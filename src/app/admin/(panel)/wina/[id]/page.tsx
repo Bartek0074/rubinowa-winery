@@ -3,6 +3,8 @@ import { client } from '@/src/sanity/lib/client';
 
 import type { SanityWine, SupabaseWine, WineMatch } from '@/src/libs/types';
 
+import { AdminWinePage } from '@/src/components/pages';
+
 import { notFound } from 'next/navigation';
 
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }) {
@@ -50,15 +52,5 @@ export default async function AdminWine({
 
   if (!supabaseWine || error) notFound();
 
-  return (
-    <div>
-      {wineMatch.supabase.name} {wineMatch.supabase.year}
-      {wineMatch.sanity && (
-        <div>
-          {wineMatch.sanity.name} {wineMatch.sanity.vintage}
-        </div>
-      )}
-      {id}
-    </div>
-  );
+  return <AdminWinePage wine={wineMatch} />;
 }
