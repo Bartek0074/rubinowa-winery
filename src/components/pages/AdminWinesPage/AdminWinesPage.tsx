@@ -8,6 +8,8 @@ import { ROUTES } from '@/src/libs/routes';
 
 import { hardcodedContent } from '@/src/libs/global-content';
 
+import { formatPrice, formatVolume } from '@/src/libs/utils';
+
 type Props = {
 	wines: WineMatch[];
 	isError: boolean;
@@ -32,18 +34,19 @@ const AdminWinePage = ({ wines, isError }: Props) => {
 						render: (row) => row.supabase.name,
 					},
 					{
-						key: 'year',
+						key: 'vintage',
 						header: hardcodedContent.pages.admin.winesPage.table.vintage,
-						render: (row) => row.supabase.year,
+						render: (row) => row.supabase.vintage,
 					},
 					{
 						key: 'price',
 						header: hardcodedContent.pages.admin.winesPage.table.price,
-						render: (row) =>
-							new Intl.NumberFormat('pl-PL', {
-								style: 'currency',
-								currency: 'PLN',
-							}).format(row.supabase.price),
+						render: (row) => formatPrice(row.supabase.price),
+					},
+					{
+						key: 'volume_ml',
+						header: hardcodedContent.pages.admin.winesPage.table.volume,
+						render: (row) => formatVolume(row.supabase.volume_ml),
 					},
 					{
 						key: 'isMatched',

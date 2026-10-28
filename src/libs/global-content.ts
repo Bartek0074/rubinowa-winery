@@ -44,6 +44,7 @@ export const hardcodedContent = {
 					name: 'Nazwa',
 					vintage: 'Rocznik',
 					price: 'Cena',
+					volume: 'Pojemność',
 					isMatched: 'Dane marketingowe',
 					isMatchedStatus: {
 						yes: 'Tak',
@@ -57,8 +58,7 @@ export const hardcodedContent = {
 				salesSection: {
 					title: 'Dane handlowe',
 					edit: 'Edytuj',
-					name: 'Nazwa',
-					vintage: 'Rocznik',
+					volume: 'Pojemność',
 					price: 'Cena',
 				},
 				marketingSection: {
