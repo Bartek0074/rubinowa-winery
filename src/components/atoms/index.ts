@@ -8,6 +8,7 @@ import Label from './Label';
 import Link from './Link';
 import Alert from './Alert';
 import DetailItem from './DetailItem';
+import FormError from './FormError';
 
 export {
 	Button,
@@ -20,4 +21,5 @@ export {
 	Link,
 	Alert,
 	DetailItem,
+	FormError,
 };

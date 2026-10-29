@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 
 import { z } from 'zod';
 
-import { Label, Input, Button } from '@/src/components/atoms';
+import { Label, Input, Button, FormError } from '@/src/components/atoms';
 
 import { useForm } from 'react-hook-form';
 
@@ -16,6 +16,8 @@ import { wineSchema } from '@/src/libs/validation/wine';
 import type { SupabaseWine } from '@/src/libs/types';
 
 import { ROUTES } from '@/src/libs/routes';
+
+import { hardcodedContent } from '@/src/libs/global-content';
 
 type WineFormType = {
     initialData?: SupabaseWine;
@@ -36,12 +38,11 @@ export default function WineForm({ initialData }: WineFormType) {
             price: initialData?.price ?? 0,
             vintage: initialData?.vintage ?? new Date().getFullYear(),
             volume_ml: initialData?.volume_ml ?? 750,
-        }
+        },
     });
 
     const [isSaving, setIsSaving] = useState(false);
     const [error, setError] = useState<Error | null>(null);
-
 
     const isEditing = Boolean(initialData?.id);
 
@@ -78,7 +79,7 @@ export default function WineForm({ initialData }: WineFormType) {
                     price: data.price,
                     vintage: data.vintage,
                     volume_ml: data.volume_ml,
-                })
+                });
                 // await createWine({
                 //     name: data.name,
                 //     price: data.price,
@@ -87,7 +88,7 @@ export default function WineForm({ initialData }: WineFormType) {
                 // });
             }
 
-            // router.push(ROUTES.ADMIN_WINES);
+            router.push(ROUTES.ADMIN_WINES);
         } catch (error) {
             setError(error as Error);
         } finally {
@@ -96,18 +97,57 @@ export default function WineForm({ initialData }: WineFormType) {
     };
 
     return (
-        <form className='space-y-4' onSubmit={handleSubmit(onSubmit)}>
-            <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
-                <div className='col-span-1 md:col-span-2'>
-                    <Label className='mb-1'>Nazwa</Label>
-                    <Input {...register('name')} type='text' />
-                    {/* <FormError message={errors.name?.message as string} /> */}
-                    {errors.name && <p>{errors.name.message}</p>}
+        <form className='space-y-6' onSubmit={handleSubmit(onSubmit)}>
+            <div className='grid grid-cols-1 md:grid-cols-2 gap-y-6 gap-x-8'>
+                <div className='col-span-1'>
+                    <Label htmlFor='name' className='mb-1'>
+                        {hardcodedContent.forms.wineForm.name.label}
+                    </Label>
+                    <Input {...register('name')} id='name' type='text' />
+                    <FormError message={errors.name?.message} className='mt-1' />
+                </div>
+                <div className='col-span-1'>
+                    <Label htmlFor='price' className='mb-1'>
+                        {hardcodedContent.forms.wineForm.price.label}
+                    </Label>
+                    <Input
+                        {...register('price', {
+                            valueAsNumber: true,
+                        })}
+                        id='price'
+                        type='number'
+                        step='0.01'
+                    />
+                    <FormError message={errors.price?.message} className='mt-1' />
+                </div>
+                <div className='col-span-1'>
+                    <Label htmlFor='vintage' className='mb-1'>
+                        {hardcodedContent.forms.wineForm.vintage.label}
+                    </Label>
+                    <Input
+                        {...register('vintage', { valueAsNumber: true })}
+                        id='vintage'
+                        type='number'
+                        step={1}
+                    />
+                    <FormError message={errors.vintage?.message} className='mt-1' />
+                </div>
+                <div className='col-span-1'>
+                    <Label htmlFor='volume_ml' className='mb-1'>
+                        {hardcodedContent.forms.wineForm.volume_ml.label}
+                    </Label>
+                    <Input
+                        {...register('volume_ml', { valueAsNumber: true })}
+                        id='volume_ml'
+                        type='number'
+                        step={1}
+                    />
+                    <FormError message={errors.volume_ml?.message} className='mt-1' />
                 </div>
             </div>
             <div className='flex justify-between items-center'>
                 <div>
-                    {error?.message && <p>{error.message}</p>}
+                    <FormError message={error?.message} />
                 </div>
                 <Button variant='outline' type='submit' loading={isSaving}>
                     {isEditing ? 'Edytuj' : 'Dodaj'}

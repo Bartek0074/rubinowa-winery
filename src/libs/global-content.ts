@@ -29,6 +29,22 @@ export const hardcodedContent = {
 			errorMessage: 'Wystąpił błąd podczas ładowania danych.',
 		},
 	},
+	forms: {
+		wineForm: {
+			name: {
+				label: 'Nazwa',
+			},
+			vintage: {
+				label: 'Rocznik',
+			},
+			price: {
+				label: 'Cena [zł]',
+			},
+			volume_ml: {
+				label: 'Pojemność [ml]',
+			},
+		},
+	},
 	pages: {
 		site: {},
 		admin: {
