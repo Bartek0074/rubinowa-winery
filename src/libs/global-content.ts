@@ -73,6 +73,12 @@ export const hardcodedContent = {
 					},
 				},
 			},
+			newWinePage: {
+				title: 'Nowe wino',
+			},
+			editWinePage: {
+				title: 'Edycja wina',
+			},
 		},
 	},
 };

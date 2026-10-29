@@ -2,6 +2,8 @@ import { createClient } from '@/src/libs/supabase/server';
 
 import type { SupabaseWine } from '@/src/libs/types';
 
+import { AdminEditWinePage } from '@/src/components/pages';
+
 import { notFound } from 'next/navigation';
 
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }) {
@@ -28,7 +30,7 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
   };
 }
 
-export default async function AdminWine({
+export default async function AdminEditWine({
   params,
 }: {
   params: Promise<{ id: string }>;
@@ -44,6 +46,6 @@ export default async function AdminWine({
   if (!supabaseWine || error) notFound();
 
   return (
-    <p>Edycja wina {supabaseWine.name}</p>
+    <AdminEditWinePage supabaseWine={supabaseWine} />
   );
 }
