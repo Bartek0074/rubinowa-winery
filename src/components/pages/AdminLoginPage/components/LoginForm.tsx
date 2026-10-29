@@ -6,7 +6,7 @@ import { useActionState } from 'react';
 
 import { Input, SubmitButton, Label } from '@/src/components/atoms';
 
-import { type LoginState, login } from '@/src/actions/login';
+import { type LoginState, login } from '@/src/actions/auth/login';
 
 import { hardcodedContent } from '@/src/libs/global-content';
 

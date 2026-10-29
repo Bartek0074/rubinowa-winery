@@ -43,6 +43,8 @@ export const hardcodedContent = {
 			volume_ml: {
 				label: 'Pojemność [ml]',
 			},
+			editButton: 'Edytuj',
+			addButton: 'Dodaj',
 		},
 	},
 	pages: {

@@ -1,6 +1,6 @@
 'use client';
 
-import { logout } from '@/src/actions/logout';
+import { logout } from '@/src/actions/auth/logout';
 
 import SubmitButton from '../SubmitButton';
 
