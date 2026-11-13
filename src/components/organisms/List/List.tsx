@@ -61,7 +61,7 @@ const List = <T,>({
 		<div className='w-full' style={gridStyle}>
 			<div
 				aria-hidden='true'
-				className='hidden gap-x-6 border border-black-muted/30 bg-beige/35 px-4 py-4 font-sans text-caption font-semibold uppercase tracking-wider text-black md:grid md:[grid-template-columns:var(--list-columns)]'
+				className='hidden gap-x-6 border border-black-muted/30 bg-beige/35 px-4 py-4 font-sans text-caption font-semibold uppercase tracking-wider text-black md:grid md:grid-cols-(--list-columns)'
 			>
 				{columns.map((column) => (
 					<div key={column.key} className={clsx('min-w-0', column.className)}>
