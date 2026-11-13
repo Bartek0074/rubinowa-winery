@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 
-import { createClient } from '@/src/libs/supabase/server';
+import { getWines } from '@/src/libs/supabase/queries/wines';
 import { client } from '@/src/sanity/lib/client';
 
-import type { SanityWine, SupabaseWine } from '@/src/libs/types';
+import type { SanityWine } from '@/src/libs/types';
 
 import { matchWines } from '@/src/libs/utils';
 
@@ -19,17 +19,13 @@ export const metadata: Metadata = {
 };
 
 export default async function AdminWines() {
-	const supabase = await createClient();
-
-	const { data, error } = await supabase.from('wines').select('*');
-
-	const supabaseWines: SupabaseWine[] = data ?? [];
+	const { wines: supabaseWines, isError } = await getWines();
 
 	const sanityWines: SanityWine[] = await client.fetch(`*[_type == "wine"]`);
 
 	const wineMatches = matchWines(supabaseWines, sanityWines);
 
 	return (
-		<AdminWinesPage wines={wineMatches} isError={!!error} />
+		<AdminWinesPage wines={wineMatches} isError={isError} />
 	);
 }

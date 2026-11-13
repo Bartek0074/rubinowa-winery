@@ -1,8 +1,6 @@
 import type { Metadata } from 'next';
 
-import { createClient } from '@/src/libs/supabase/server';
-
-import type { SupabaseWine } from '@/src/libs/types';
+import { getWineById } from '@/src/libs/supabase/queries/wines';
 
 import { AdminEditWinePage } from '@/src/components/pages';
 
@@ -24,13 +22,9 @@ export default async function AdminEditWine({
 }) {
   const { id } = await params;
 
-  const supabase = await createClient();
+  const supabaseWine = await getWineById(id);
 
-  const { data, error } = await supabase.from('wines').select('*').eq('id', id).maybeSingle();
-
-  const supabaseWine: SupabaseWine = data;
-
-  if (!supabaseWine || error) notFound();
+  if (!supabaseWine) notFound();
 
   return (
     <AdminEditWinePage supabaseWine={supabaseWine} />
