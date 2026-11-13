@@ -24,7 +24,7 @@ export const hardcodedContent = {
 		},
 	},
 	organisms: {
-		dataTable: {
+		list: {
 			emptyMessage: 'Brak danych do wyświetlenia.',
 			errorMessage: 'Wystąpił błąd podczas ładowania danych.',
 		},
@@ -68,8 +68,6 @@ export const hardcodedContent = {
 						yes: 'Tak',
 						no: 'Nie',
 					},
-					actions: 'Akcje',
-					view: 'Podgląd',
 				},
 			},
 			winePage: {

@@ -1,4 +1,4 @@
-import DataTable from './DataTable';
+import List from './List';
 
-export { DataTable };
-export type { DataTableColumn, DataTableProps } from './DataTable';
+export { List };
+export type { ListColumn, ListProps } from './List';

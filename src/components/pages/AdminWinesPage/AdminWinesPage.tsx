@@ -1,8 +1,8 @@
-import { DataTable } from '@/src/components/organisms';
+import { List } from '@/src/components/organisms';
 
 import type { WineMatch } from '@/src/libs/types';
 
-import { Button, Link } from '@/src/components/atoms';
+import { Button } from '@/src/components/atoms';
 
 import { ROUTES } from '@/src/libs/routes';
 
@@ -26,7 +26,7 @@ const AdminWinePage = ({ wines, isError }: Props) => {
 					{hardcodedContent.pages.admin.winesPage.addWine}
 				</Button.Link>
 			</div>
-			<DataTable
+			<List
 				columns={[
 					{
 						key: 'name',
@@ -41,6 +41,7 @@ const AdminWinePage = ({ wines, isError }: Props) => {
 					{
 						key: 'price',
 						header: hardcodedContent.pages.admin.winesPage.table.price,
+						className: 'font-medium text-black',
 						render: (row) => formatPrice(row.supabase.price),
 					},
 					{
@@ -68,17 +69,9 @@ const AdminWinePage = ({ wines, isError }: Props) => {
 								</span>
 							),
 					},
-					{
-						key: 'actions',
-						header: hardcodedContent.pages.admin.winesPage.table.actions,
-						render: (row) => (
-							<Link href={ROUTES.ADMIN_WINE_DETAILS(row.supabase.id)}>
-								{hardcodedContent.pages.admin.winesPage.table.view}
-							</Link>
-						),
-					},
 				]}
 				getRowKey={(row) => row.supabase.id}
+				getRowHref={(row) => ROUTES.ADMIN_WINE_DETAILS(row.supabase.id)}
 				data={wines}
 				isError={isError}
 				errorMessage={hardcodedContent.pages.admin.winesPage.fetchError}
