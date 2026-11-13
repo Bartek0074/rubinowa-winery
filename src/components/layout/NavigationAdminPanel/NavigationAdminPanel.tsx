@@ -18,6 +18,10 @@ const LINKS = [
 		href: ROUTES.ADMIN_WINES,
 		label: hardcodedContent.routes.adminWines,
 	},
+	{
+		href: ROUTES.ADMIN_DELIVERY_METHODS,
+		label: hardcodedContent.routes.adminDeliveryMethods,
+	}
 ];
 
 type NavigationAdminPanelProps = {

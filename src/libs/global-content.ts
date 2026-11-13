@@ -6,6 +6,7 @@ export const hardcodedContent = {
 		blog: 'Blog',
 		contact: 'Kontakt',
 		adminWines: 'Wina',
+		adminDeliveryMethods: 'Metody dostawy',
 	},
 	messages: {
 		login: {
