@@ -14,13 +14,12 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
         vintage
     }`, { id });
 
-  if (!meta) return { title: 'Wino niepowiązane | Panel Admina', description: '', robots: { index: false, follow: false, noarchive: true } };
+  if (!meta) return { title: 'Wino niepowiązane | Panel Admina', robots: { index: false, follow: false, noarchive: true } };
 
   const title = meta.name && meta.vintage ? `${meta.name} ${meta.vintage}` : meta.name || '';
 
   return {
     title: title + ' | Panel Admina',
-    description: title,
     robots: {
       index: false,
       follow: false,
