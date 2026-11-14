@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 
 import { getDeliveryMethods } from '@/src/libs/supabase/queries/deliveryMethods';
 
+import { AdminDeliveryMethodsPage } from '@/src/components/pages';
+
 export const metadata: Metadata = {
 	title: 'Metody dostawy | Panel Admina',
 	robots: {
@@ -12,8 +14,7 @@ export const metadata: Metadata = {
 };
 
 export default async function AdminDeliveryMethods() {
-	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	const { deliveryMethods, isError } = await getDeliveryMethods();
 
-	return <p>Metody dostawy</p>;
+	return <AdminDeliveryMethodsPage deliveryMethods={deliveryMethods} isError={isError} />;
 }

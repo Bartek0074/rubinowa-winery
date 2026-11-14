@@ -96,6 +96,15 @@ export const hardcodedContent = {
 			editWinePage: {
 				title: 'Edycja wina',
 			},
+			deliveryMethodsPage: {
+				title: 'Metody dostawy',
+				addDeliveryMethod: 'Dodaj metodę dostawy',
+				fetchError: 'Nie udało się pobrać danych.',
+				table: {
+					name: 'Nazwa',
+					price: 'Cena',
+				},
+			},
 		},
 	},
 };

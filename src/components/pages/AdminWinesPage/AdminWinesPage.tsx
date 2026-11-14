@@ -18,7 +18,7 @@ type Props = {
 const AdminWinePage = ({ wines, isError }: Props) => {
 	return (
 		<div className='px-base mt-section-sm'>
-			<div className='flex justify-between items-center mb-4'>
+			<div className='flex justify-between items-center mb-6'>
 				<h1 className='text-h2 uppercase'>
 					{hardcodedContent.pages.admin.winesPage.title}
 				</h1>
