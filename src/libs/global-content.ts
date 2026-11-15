@@ -105,6 +105,13 @@ export const hardcodedContent = {
 					price: 'Cena',
 				},
 			},
+			deliveryMethodPage: {
+				salesSection: {
+					title: 'Dane handlowe',
+					edit: 'Edytuj',
+					price: 'Cena',
+				},
+			},
 		},
 	},
 };

@@ -4,6 +4,7 @@ import AdminWinesPage from './AdminWinesPage/AdminWinesPage';
 import AdminNewWinePage from './AdminNewWinePage/AdminNewWinePage';
 import AdminEditWinePage from './AdminEditWinePage/AdminEditWinePage';
 import AdminDeliveryMethodsPage from './AdminDeliveryMethodsPage/AdminDeliveryMethodsPage';
+import AdminDeliveryMethodPage from './AdminDeliveryMethodPage/AdminDeliveryMethodPage';
 import HomePage from './HomePage';
 
-export { AdminLoginPage, AdminWinePage, AdminWinesPage, AdminNewWinePage, AdminEditWinePage, AdminDeliveryMethodsPage, HomePage };
+export { AdminLoginPage, AdminWinePage, AdminWinesPage, AdminNewWinePage, AdminEditWinePage, AdminDeliveryMethodsPage, AdminDeliveryMethodPage, HomePage };
