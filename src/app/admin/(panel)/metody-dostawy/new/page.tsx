@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 
+import { AdminNewDeliveryMethodPage } from '@/src/components/pages';
+
 export const metadata: Metadata = {
 	title: 'Nowa metoda dostawy | Panel Admina',
 	robots: {
@@ -10,5 +12,5 @@ export const metadata: Metadata = {
 };
 
 export default function AdminDeliveryMethodNew() {
-	return <p>Nowa metoda dostawy</p>;
+	return <AdminNewDeliveryMethodPage />;
 }

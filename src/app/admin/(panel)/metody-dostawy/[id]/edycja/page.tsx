@@ -4,6 +4,8 @@ import { notFound } from 'next/navigation';
 
 import { getDeliveryMethodById } from '@/src/libs/supabase/queries/deliveryMethods';
 
+import { AdminEditDeliveryMethodPage } from '@/src/components/pages';
+
 export const metadata: Metadata = {
 	title: 'Edycja metody dostawy | Panel Admina',
 	robots: {
@@ -24,5 +26,5 @@ export default async function AdminEditDeliveryMethod({
 
 	if (!deliveryMethod) notFound();
 
-	return <p>Edycja metody dostawy</p>;
+	return <AdminEditDeliveryMethodPage deliveryMethod={deliveryMethod} />;
 }

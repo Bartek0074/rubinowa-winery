@@ -8,5 +8,5 @@ export const deliveryMethodSchema = z.object({
 
 	price: z
 		.number({ message: 'Cena jest wymagana i musi być liczbą.' })
-		.positive({ message: 'Cena musi być większa od 0,00 zł.' }),
+		.nonnegative({ message: 'Cena musi być większa lub równa 0,00 zł.' }),
 });

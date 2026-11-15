@@ -47,6 +47,16 @@ export const hardcodedContent = {
 			editButton: 'Edytuj',
 			addButton: 'Dodaj',
 		},
+		deliveryMethodForm: {
+			name: {
+				label: 'Nazwa',
+			},
+			price: {
+				label: 'Cena [zł]',
+			},
+			editButton: 'Edytuj',
+			addButton: 'Dodaj',
+		},
 	},
 	pages: {
 		site: {},
@@ -111,6 +121,12 @@ export const hardcodedContent = {
 					edit: 'Edytuj',
 					price: 'Cena',
 				},
+			},
+			newDeliveryMethodPage: {
+				title: 'Nowa metoda dostawy',
+			},
+			editDeliveryMethodPage: {
+				title: 'Edycja metody dostawy',
 			},
 		},
 	},
